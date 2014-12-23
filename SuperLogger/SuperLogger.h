@@ -6,8 +6,6 @@
 //  Copyright (c) 2014 GYX. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 @interface SuperLogger : NSObject
 @property(strong, nonatomic) NSString *mailTitle;
 @property(strong, nonatomic) NSString *mailContect;
