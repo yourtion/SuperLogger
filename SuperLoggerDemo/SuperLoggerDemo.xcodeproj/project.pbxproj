@@ -13,18 +13,10 @@
 		CBF026111A49AB8100F28BC0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBF0260F1A49AB8100F28BC0 /* Main.storyboard */; };
 		CBF026131A49AB8100F28BC0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBF026121A49AB8100F28BC0 /* Images.xcassets */; };
 		CBF026161A49AB8100F28BC0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBF026141A49AB8100F28BC0 /* LaunchScreen.xib */; };
-		CBF026221A49AB8100F28BC0 /* SuperLoggerDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF026211A49AB8100F28BC0 /* SuperLoggerDemoTests.m */; };
+		CBF026321A49ABC000F28BC0 /* SuperLogerListView.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF0262D1A49ABC000F28BC0 /* SuperLogerListView.m */; };
+		CBF026331A49ABC000F28BC0 /* SuperLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF0262F1A49ABC000F28BC0 /* SuperLogger.m */; };
+		CBF026341A49ABC000F28BC0 /* SuperLoggerFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF026311A49ABC000F28BC0 /* SuperLoggerFunctions.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		CBF0261C1A49AB8100F28BC0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CBF025FA1A49AB8100F28BC0 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CBF026011A49AB8100F28BC0;
-			remoteInfo = SuperLoggerDemo;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		CBF026021A49AB8100F28BC0 /* SuperLoggerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperLoggerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -37,20 +29,18 @@
 		CBF026101A49AB8100F28BC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CBF026121A49AB8100F28BC0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CBF026151A49AB8100F28BC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		CBF0261B1A49AB8100F28BC0 /* SuperLoggerDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SuperLoggerDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBF026201A49AB8100F28BC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBF026211A49AB8100F28BC0 /* SuperLoggerDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SuperLoggerDemoTests.m; sourceTree = "<group>"; };
+		CBF0262C1A49ABC000F28BC0 /* SuperLogerListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperLogerListView.h; sourceTree = "<group>"; };
+		CBF0262D1A49ABC000F28BC0 /* SuperLogerListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperLogerListView.m; sourceTree = "<group>"; };
+		CBF0262E1A49ABC000F28BC0 /* SuperLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperLogger.h; sourceTree = "<group>"; };
+		CBF0262F1A49ABC000F28BC0 /* SuperLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperLogger.m; sourceTree = "<group>"; };
+		CBF026301A49ABC000F28BC0 /* SuperLoggerFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperLoggerFunctions.h; sourceTree = "<group>"; };
+		CBF026311A49ABC000F28BC0 /* SuperLoggerFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperLoggerFunctions.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		CBF025FF1A49AB8100F28BC0 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CBF026181A49AB8100F28BC0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -63,6 +53,7 @@
 		CBF025F91A49AB8100F28BC0 = {
 			isa = PBXGroup;
 			children = (
+				CBF0262B1A49ABC000F28BC0 /* SuperLogger */,
 				CBF026041A49AB8100F28BC0 /* SuperLoggerDemo */,
 				CBF0261E1A49AB8100F28BC0 /* SuperLoggerDemoTests */,
 				CBF026031A49AB8100F28BC0 /* Products */,
@@ -73,7 +64,6 @@
 			isa = PBXGroup;
 			children = (
 				CBF026021A49AB8100F28BC0 /* SuperLoggerDemo.app */,
-				CBF0261B1A49AB8100F28BC0 /* SuperLoggerDemoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -119,6 +109,20 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		CBF0262B1A49ABC000F28BC0 /* SuperLogger */ = {
+			isa = PBXGroup;
+			children = (
+				CBF0262C1A49ABC000F28BC0 /* SuperLogerListView.h */,
+				CBF0262D1A49ABC000F28BC0 /* SuperLogerListView.m */,
+				CBF0262E1A49ABC000F28BC0 /* SuperLogger.h */,
+				CBF0262F1A49ABC000F28BC0 /* SuperLogger.m */,
+				CBF026301A49ABC000F28BC0 /* SuperLoggerFunctions.h */,
+				CBF026311A49ABC000F28BC0 /* SuperLoggerFunctions.m */,
+			);
+			name = SuperLogger;
+			path = ../../SuperLogger/SuperLogger;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -139,24 +143,6 @@
 			productReference = CBF026021A49AB8100F28BC0 /* SuperLoggerDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		CBF0261A1A49AB8100F28BC0 /* SuperLoggerDemoTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CBF026281A49AB8100F28BC0 /* Build configuration list for PBXNativeTarget "SuperLoggerDemoTests" */;
-			buildPhases = (
-				CBF026171A49AB8100F28BC0 /* Sources */,
-				CBF026181A49AB8100F28BC0 /* Frameworks */,
-				CBF026191A49AB8100F28BC0 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				CBF0261D1A49AB8100F28BC0 /* PBXTargetDependency */,
-			);
-			name = SuperLoggerDemoTests;
-			productName = SuperLoggerDemoTests;
-			productReference = CBF0261B1A49AB8100F28BC0 /* SuperLoggerDemoTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -168,10 +154,6 @@
 				TargetAttributes = {
 					CBF026011A49AB8100F28BC0 = {
 						CreatedOnToolsVersion = 6.1.1;
-					};
-					CBF0261A1A49AB8100F28BC0 = {
-						CreatedOnToolsVersion = 6.1.1;
-						TestTargetID = CBF026011A49AB8100F28BC0;
 					};
 				};
 			};
@@ -189,7 +171,6 @@
 			projectRoot = "";
 			targets = (
 				CBF026011A49AB8100F28BC0 /* SuperLoggerDemo */,
-				CBF0261A1A49AB8100F28BC0 /* SuperLoggerDemoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -205,13 +186,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CBF026191A49AB8100F28BC0 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -220,28 +194,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBF0260E1A49AB8100F28BC0 /* ViewController.m in Sources */,
+				CBF026341A49ABC000F28BC0 /* SuperLoggerFunctions.m in Sources */,
 				CBF0260B1A49AB8100F28BC0 /* AppDelegate.m in Sources */,
+				CBF026321A49ABC000F28BC0 /* SuperLogerListView.m in Sources */,
+				CBF026331A49ABC000F28BC0 /* SuperLogger.m in Sources */,
 				CBF026081A49AB8100F28BC0 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CBF026171A49AB8100F28BC0 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CBF026221A49AB8100F28BC0 /* SuperLoggerDemoTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		CBF0261D1A49AB8100F28BC0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CBF026011A49AB8100F28BC0 /* SuperLoggerDemo */;
-			targetProxy = CBF0261C1A49AB8100F28BC0 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		CBF0260F1A49AB8100F28BC0 /* Main.storyboard */ = {
@@ -359,40 +320,6 @@
 			};
 			name = Release;
 		};
-		CBF026291A49AB8100F28BC0 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = SuperLoggerDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SuperLoggerDemo.app/SuperLoggerDemo";
-			};
-			name = Debug;
-		};
-		CBF0262A1A49AB8100F28BC0 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = SuperLoggerDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SuperLoggerDemo.app/SuperLoggerDemo";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -410,14 +337,6 @@
 			buildConfigurations = (
 				CBF026261A49AB8100F28BC0 /* Debug */,
 				CBF026271A49AB8100F28BC0 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
-		CBF026281A49AB8100F28BC0 /* Build configuration list for PBXNativeTarget "SuperLoggerDemoTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CBF026291A49AB8100F28BC0 /* Debug */,
-				CBF0262A1A49AB8100F28BC0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
