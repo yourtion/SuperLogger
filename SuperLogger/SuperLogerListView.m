@@ -22,35 +22,36 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        
-        
     }
     return self;
 }
 
--(void)layoutNavigationBar{
+-(void)layoutNavigationBar
+{
     self.navigationBar.frame = CGRectMake(0, self.tableView.contentOffset.y, self.tableView.frame.size.width, self.topLayoutGuide.length + 44);
     self.tableView.contentInset = UIEdgeInsetsMake(self.navigationBar.frame.size.height, 0, 0, 0);
 }
 
--(void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    //no need to call super
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
     [self layoutNavigationBar];
 }
 
--(void)viewDidLayoutSubviews{
+-(void)viewDidLayoutSubviews
+{
     [super viewDidLayoutSubviews];
     [self layoutNavigationBar];
 }
 
-- (void)loadView{
+- (void)loadView
+{
     CGRect applicationFrame = [[UIScreen mainScreen] applicationFrame];
     self.tableView = [[UITableView alloc]initWithFrame:applicationFrame];
     self.view.backgroundColor=[UIColor whiteColor];
-    
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     self.fileList = [[SuperLogger sharedInstance]getLogList];
     self.navigationItem.title = @"LogList";
@@ -67,6 +68,7 @@
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
 -(void)clean
 {
     [[SuperLogger sharedInstance]cleanLogs];
@@ -75,32 +77,33 @@
     [self.tableView reloadData];
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     return self.fileList.count;
 }
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     UITableViewCell *cell = [[UITableViewCell alloc]init];
     cell.textLabel.text = self.fileList[indexPath.row];
-    
-    // Configure the cell...
-    
     return cell;
 }
 
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
     _tempFilename = [_fileList objectAtIndex:indexPath.row];
     [self exportTapped:self];
 }
 
-- (void)exportTapped:(id)sender {
-    
+- (void)exportTapped:(id)sender
+{
     UIActionSheet *actionSheet = [[UIActionSheet alloc]
                                   initWithTitle:_tempFilename
                                   delegate:self
@@ -112,8 +115,8 @@
 }
 
 // Add new methods
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
     if (buttonIndex ==  0) {
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             SuperLogger *logger = [SuperLogger sharedInstance];
@@ -140,11 +143,9 @@
 
 - (void)mailComposeController:(MFMailComposeViewController *)controller
           didFinishWithResult:(MFMailComposeResult)result
-                        error:(NSError *)error {
+                        error:(NSError *)error
+{
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
-
-
 
 @end

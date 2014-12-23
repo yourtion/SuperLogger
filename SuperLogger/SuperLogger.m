@@ -50,9 +50,9 @@
     }
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
-
+    
     if (![SuperLoggerFunctions isFileExistAtPath:_logDirectory]) {
-        [fileManager createDirectoryAtPath:_logDirectory  withIntermediateDirectories:YES attributes:nil error:nil];
+        [fileManager createDirectoryAtPath:_logDirectory withIntermediateDirectories:YES attributes:nil error:nil];
     }
     
     //每次启动后都保存一个新的日志文件中
@@ -69,14 +69,13 @@
 
 void UncaughtExceptionHandler(NSException* exception)
 {
-    NSString* name = [ exception name ];
-    NSString* reason = [ exception reason ];
-    NSArray* symbols = [ exception callStackSymbols ]; // 异常发生时的调用栈
-    NSMutableString* strSymbols = [ [ NSMutableString alloc ] init ]; //将调用栈拼成输出日志的字符串
-    for ( NSString* item in symbols )
-    {
-        [ strSymbols appendString: item ];
-        [ strSymbols appendString: @"\r\n" ];
+    NSString *name = [exception name];
+    NSString *reason = [exception reason];
+    NSArray *symbols = [exception callStackSymbols]; // 异常发生时的调用栈
+    NSMutableString *strSymbols = [ [ NSMutableString alloc ] init ]; //将调用栈拼成输出日志的字符串
+    for (NSString *item in symbols){
+        [strSymbols appendString: item];
+        [strSymbols appendString: @"\r\n"];
     }
     
     //将crash日志保存到Document目录下的Log文件夹下

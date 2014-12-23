@@ -34,9 +34,8 @@
     return filenamelist;
 }
 
-+(BOOL)isFileExistAtPath:(NSString*)fileFullPath {
-    BOOL isExist = NO;
-    isExist = [[NSFileManager defaultManager] fileExistsAtPath:fileFullPath];
-    return isExist;
++(BOOL)isFileExistAtPath:(NSString*)fileFullPath
+{
+    return [[NSFileManager defaultManager] fileExistsAtPath:fileFullPath];
 }
 @end

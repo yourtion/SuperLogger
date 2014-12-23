@@ -18,11 +18,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
     SuperLogger *logger = [SuperLogger sharedInstance];
+    // Start NSLogToDocument
     [logger redirectNSLogToDocumentFolder];
+    // Set Email info
     logger.mailTitle = @"SuperLoggerDemo Logfile";
     logger.mailContect = @"This is the SuperLoggerDemo Logfile";
     logger.mailRecipients = @[@"yourtion@gmail.com"];
+    
     return YES;
 }
 
