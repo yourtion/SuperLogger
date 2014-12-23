@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "SuperLogger.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    SuperLogger *logger = [SuperLogger sharedInstance];
+    [logger redirectNSLogToDocumentFolder];
+    logger.mailTitle = @"SuperLoggerDemo Logfile";
+    logger.mailContect = @"This is the SuperLoggerDemo Logfile";
+    logger.mailRecipients = @[@"yourtion@gmail.com"];
     return YES;
 }
 

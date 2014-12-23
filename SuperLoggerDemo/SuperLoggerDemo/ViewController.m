@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "SuperLogger.h"
 
 @interface ViewController ()
 
@@ -22,6 +23,18 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)addLog:(id)sender {
+    NSLog(@"This is a log.");
+}
+
+- (IBAction)addCash:(id)sender {
+    [self delete:nil];
+}
+
+- (IBAction)showLogList:(id)sender {
+    [self presentViewController:[[SuperLogger sharedInstance] getListView] animated:YES completion:nil];
 }
 
 @end

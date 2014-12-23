@@ -1,22 +1,68 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C81f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h4A-63-n2X">
+                                <rect key="frame" x="118" y="269" width="84" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="84" id="ZvW-o0-1UB"/>
+                                </constraints>
+                                <state key="normal" title="TestCash">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addCash:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="pev-bF-Vap"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gCW-6O-TqV">
+                                <rect key="frame" x="106" y="518" width="108" height="30"/>
+                                <state key="normal" title="ShowLogList">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showLogList:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="upz-dM-Jpd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q3V-u9-kGB">
+                                <rect key="frame" x="116" y="231" width="88" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="88" id="gLH-7u-3lH"/>
+                                </constraints>
+                                <state key="normal" title="AddLog">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addLog:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="SOY-pA-NT2"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Q3V-u9-kGB" firstAttribute="centerX" secondItem="h4A-63-n2X" secondAttribute="centerX" id="5QH-Cf-nbs"/>
+                            <constraint firstItem="gCW-6O-TqV" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="90" id="Q49-cx-J5W"/>
+                            <constraint firstItem="h4A-63-n2X" firstAttribute="top" secondItem="Q3V-u9-kGB" secondAttribute="bottom" constant="8" symbolic="YES" id="VTd-fP-4f5"/>
+                            <constraint firstItem="h4A-63-n2X" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="bjE-iM-BoX"/>
+                            <constraint firstItem="h4A-63-n2X" firstAttribute="centerX" secondItem="gCW-6O-TqV" secondAttribute="centerX" id="nIT-HZ-Va3"/>
+                            <constraint firstAttribute="bottom" secondItem="gCW-6O-TqV" secondAttribute="bottom" constant="20" symbolic="YES" id="oQQ-8B-nqV"/>
+                            <constraint firstItem="Q3V-u9-kGB" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="v2x-rt-A5T"/>
+                        </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
