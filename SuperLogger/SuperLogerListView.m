@@ -9,6 +9,7 @@
 #import "SuperLogerListView.h"
 #import "SuperLogger.h"
 #import <MessageUI/MessageUI.h>
+#import "SuperLoggerPreviewView.h"
 
 @interface SuperLogerListView ()<UIActionSheetDelegate, MFMailComposeViewControllerDelegate>
 @property(strong,nonatomic) NSArray *fileList;
@@ -109,7 +110,7 @@
                                   delegate:self
                                   cancelButtonTitle:@"Cancel"
                                   destructiveButtonTitle:nil
-                                  otherButtonTitles:@"Send via Email", @"Delete", nil];
+                                  otherButtonTitles:@"Preview", @"Send via Email", @"Delete", nil];
     [actionSheet showInView:self.view];
     
 }
@@ -118,6 +119,12 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex ==  0) {
+        SuperLoggerPreviewView *pre = [[SuperLoggerPreviewView alloc]init];
+        pre.logData = [[SuperLogger sharedInstance] getDataWithFilename:_tempFilename];
+        pre.logFilename = _tempFilename;
+        [self presentViewController:pre animated:YES completion:nil];
+    }
+    else if (buttonIndex == 1) {
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             SuperLogger *logger = [SuperLogger sharedInstance];
             NSData *tempData = [logger getDataWithFilename:_tempFilename];
@@ -132,7 +139,8 @@
                 [self presentViewController:picker animated:YES completion:nil];
             }
         }];
-    } else if (buttonIndex == 1) {
+    }
+    else if (buttonIndex == 2) {
         [[SuperLogger sharedInstance]deleteLogWithFilename:_tempFilename];
         self.fileList = nil;
         self.fileList = [[SuperLogger sharedInstance]getLogList];
