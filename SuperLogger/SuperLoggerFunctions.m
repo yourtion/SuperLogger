@@ -45,8 +45,13 @@
             }
         }
     }
-    
-    return filenamelist;
+    NSArray *sortedList = [filenamelist sortedArrayUsingComparator:^NSComparisonResult(NSString *str1, NSString *str2) {
+        NSString *fileName1 = [str1 lastPathComponent];
+        NSString *fileName2 = [str2 lastPathComponent];
+        NSStringCompareOptions options = NSCaseInsensitiveSearch | NSNumericSearch;
+        return [fileName2 compare:fileName1 options:options];
+    }];
+    return sortedList;
 }
 
 /**
