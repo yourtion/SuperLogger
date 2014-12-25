@@ -16,6 +16,11 @@
 
 @implementation SuperLogger
 
+/**
+ *  SuperLogger sharedInstance
+ *
+ *  @return SuperLogger sharedInstance
+ */
 + (SuperLogger *)sharedInstance
 {
     static SuperLogger*_sharedInstance = nil;
@@ -26,6 +31,11 @@
     return _sharedInstance;
 }
 
+/**
+ *  SuperLogger init (set logDirectory)
+ *
+ *  @return SuperLogger
+ */
 - (instancetype)init
 {
     self = [super init];
@@ -37,15 +47,17 @@
     return self;
 }
 
+/**
+ *  Start redirectNSLogToDocumentFolder
+ */
 -(void)redirectNSLogToDocumentFolder
 {
-    //如果已经连接Xcode调试则不输出到文件
     if(isatty(STDOUT_FILENO)) {
         return;
     }
     
     UIDevice *device = [UIDevice currentDevice];
-    if([[device model] hasSuffix:@"Simulator"]){ //在模拟器不保存到文件中
+    if([[device model] hasSuffix:@"Simulator"]){
         return;
     }
     
@@ -55,15 +67,12 @@
         [fileManager createDirectoryAtPath:_logDirectory withIntermediateDirectories:YES attributes:nil error:nil];
     }
     
-    //每次启动后都保存一个新的日志文件中
     NSString *dateStr = [SuperLoggerFunctions getDateTimeStringWithFormat:@"yyyy-MM-dd_HH:mm"];
     NSString *logFilePath = [_logDirectory stringByAppendingFormat:@"/%@.log",dateStr];
     
-    // 将log输入到文件
     freopen([logFilePath cStringUsingEncoding:NSASCIIStringEncoding], "a+", stdout);
     freopen([logFilePath cStringUsingEncoding:NSASCIIStringEncoding], "a+", stderr);
     
-    //未捕获的Objective-C异常日志
     NSSetUncaughtExceptionHandler (&UncaughtExceptionHandler);
 }
 
@@ -78,7 +87,6 @@ void UncaughtExceptionHandler(NSException* exception)
         [strSymbols appendString: @"\r\n"];
     }
     
-    //将crash日志保存到Document目录下的Log文件夹下
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *logDirectory = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"Log"];
     
@@ -93,7 +101,6 @@ void UncaughtExceptionHandler(NSException* exception)
     
     NSString *crashString = [NSString stringWithFormat:@"<- %@ ->[ Uncaught Exception ]\r\nName: %@, Reason: %@\r\n[ Fe Symbols Start ]\r\n%@[ Fe Symbols End ]\r\n\r\n", dateStr, name, reason, strSymbols];
     
-    //把错误日志写到文件中
     if (![fileManager fileExistsAtPath:logFilePath]) {
         [crashString writeToFile:logFilePath atomically:YES encoding:NSUTF8StringEncoding error:nil];
     }else{
@@ -104,16 +111,29 @@ void UncaughtExceptionHandler(NSException* exception)
     }
 }
 
+/**
+ *  Get all logfile
+ *
+ *  @return logfile list Array
+ */
 -(NSArray *)getLogList
 {
     return [SuperLoggerFunctions getFilenamelistOfType:@"log" fromDirPath:_logDirectory];
 }
 
+/**
+ *  Get SuperLogerListView
+ *
+ *  @return UITableView logger listview
+ */
 -(id)getListView
 {
     return [[SuperLogerListView alloc]init];
 }
 
+/**
+ *  Clean all logs
+ */
 -(void)cleanLogs
 {
     NSArray *filename = [SuperLoggerFunctions getFilenamelistOfType:@"log" fromDirPath:_logDirectory];
@@ -123,12 +143,24 @@ void UncaughtExceptionHandler(NSException* exception)
     }
 }
 
+/**
+ *  Get logfile's NSData with filename
+ *
+ *  @param filename log filename
+ *
+ *  @return logfile content data
+ */
 -(NSData *)getDataWithFilename:(NSString *)filename
 {
     NSString *logFilePath = [_logDirectory stringByAppendingPathComponent:filename];
     return [NSData dataWithContentsOfFile:logFilePath];
 }
 
+/**
+ *  Delete Logfile With Filename
+ *
+ *  @param filename log filename
+ */
 -(void)deleteLogWithFilename:(NSString *)filename
 {
     NSString *logFilePath = [_logDirectory stringByAppendingPathComponent:filename];

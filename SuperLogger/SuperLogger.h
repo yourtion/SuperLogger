@@ -14,10 +14,10 @@
 @property(strong, nonatomic) NSArray *mailRecipients;
 
 + (SuperLogger *)sharedInstance;
--(void)redirectNSLogToDocumentFolder;
--(NSArray *)getLogList;
--(id)getListView;
--(void)cleanLogs;
--(NSData *)getDataWithFilename:(NSString *)filename;
--(void)deleteLogWithFilename:(NSString *)filename;
+- (void)redirectNSLogToDocumentFolder;
+- (NSArray *)getLogList;
+- (id)getListView;
+- (void)cleanLogs;
+- (NSData *)getDataWithFilename:(NSString *)filename;
+- (void)deleteLogWithFilename:(NSString *)filename;
 @end

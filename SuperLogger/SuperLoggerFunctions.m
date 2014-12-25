@@ -9,6 +9,13 @@
 #import "SuperLoggerFunctions.h"
 
 @implementation SuperLoggerFunctions
+/**
+ *  getDateTimeStringWithFormat
+ *
+ *  @param format like "yyyy-MM-dd HH:mm:ss"
+ *
+ *  @return NSString like 2014-12-02 12:59:30
+ */
 +(NSString *)getDateTimeStringWithFormat:(NSString *)format
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -17,6 +24,14 @@
     return [formatter stringFromDate:[NSDate date]];
 }
 
+/**
+ *  getFilenamelistOfType
+ *
+ *  @param type    fileTile like @"log"
+ *  @param dirPath filePath
+ *
+ *  @return filename array
+ */
 +(NSArray *)getFilenamelistOfType:(NSString *)type fromDirPath:(NSString *)dirPath
 {
     NSMutableArray *filenamelist = [NSMutableArray arrayWithCapacity:10];
@@ -34,6 +49,13 @@
     return filenamelist;
 }
 
+/**
+ *  isFileExistAtPath
+ *
+ *  @param fileFullPath fileFullPath
+ *
+ *  @return is File Exist
+ */
 +(BOOL)isFileExistAtPath:(NSString*)fileFullPath
 {
     return [[NSFileManager defaultManager] fileExistsAtPath:fileFullPath];
