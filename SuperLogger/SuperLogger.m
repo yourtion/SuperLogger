@@ -12,9 +12,13 @@
 
 @interface SuperLogger()
 @property(strong, nonatomic) NSString *logDirectory;
+@property(strong, nonatomic) NSString *logFilename;
 @end
 
 @implementation SuperLogger
+{
+    NSString *crash;
+}
 
 /**
  *  SuperLogger sharedInstance
@@ -68,7 +72,8 @@
     }
     
     NSString *dateStr = [SuperLoggerFunctions getDateTimeStringWithFormat:@"yyyy-MM-dd_HH:mm"];
-    NSString *logFilePath = [_logDirectory stringByAppendingFormat:@"/%@.log",dateStr];
+    self.logFilename = [NSString stringWithFormat:@"%@.log",dateStr];
+    NSString *logFilePath = [_logDirectory stringByAppendingPathComponent:_logFilename];
     
     freopen([logFilePath cStringUsingEncoding:NSASCIIStringEncoding], "a+", stdout);
     freopen([logFilePath cStringUsingEncoding:NSASCIIStringEncoding], "a+", stderr);
@@ -94,9 +99,8 @@ void UncaughtExceptionHandler(NSException* exception)
     if (![fileManager fileExistsAtPath:logDirectory]) {
         [fileManager createDirectoryAtPath:logDirectory  withIntermediateDirectories:YES attributes:nil error:nil];
     }
-    NSString *logDate = [SuperLoggerFunctions getDateTimeStringWithFormat:@"yyyy-MM-dd_HH:mm"];
-    
-    NSString *logFilePath = [logDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@_Cash.log",logDate]];
+
+    NSString *logFilePath = [logDirectory stringByAppendingPathComponent:@"CashLog.log"];
     NSString *dateStr = [SuperLoggerFunctions getDateTimeStringWithFormat:@"yyyy-MM-dd HH:mm:ss"];
     
     NSString *crashString = [NSString stringWithFormat:@"<- %@ ->[ Uncaught Exception ]\r\nName: %@, Reason: %@\r\n[ Fe Symbols Start ]\r\n%@[ Fe Symbols End ]\r\n\r\n", dateStr, name, reason, strSymbols];
@@ -139,7 +143,10 @@ void UncaughtExceptionHandler(NSException* exception)
     NSArray *filename = [SuperLoggerFunctions getFilenamelistOfType:@"log" fromDirPath:_logDirectory];
     NSInteger count = filename.count;
     for (int i = 0; i<count; i++) {
-        [self deleteLogWithFilename:[filename objectAtIndex:i]];
+        if (![[filename objectAtIndex:i]  isEqualToString: @"CashLog.log"]
+            && ![[filename objectAtIndex:i] isEqualToString: self.logFilename]) {
+            [self deleteLogWithFilename:[filename objectAtIndex:i]];
+        }
     }
 }
 
