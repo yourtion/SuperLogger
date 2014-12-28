@@ -17,6 +17,8 @@
 - (void)redirectNSLogToDocumentFolder;
 - (NSArray *)getLogList;
 - (id)getListView;
+- (BOOL)starWithFilename:(NSString *)filename;
+- (BOOL)isStaredWithFilename:(NSString *)filename;
 - (void)cleanLogs;
 - (NSData *)getDataWithFilename:(NSString *)filename;
 - (void)deleteLogWithFilename:(NSString *)filename;

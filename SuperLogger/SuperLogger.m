@@ -10,7 +10,11 @@
 #import "SuperLoggerFunctions.h"
 #import "SuperLogerListView.h"
 
+#define STARLIST @"SuperLogger_star"
+
 @interface SuperLogger()
+@property(strong, nonatomic) NSUserDefaults *userDefaults;
+@property(strong, nonatomic) NSMutableArray *starList;
 @property(strong, nonatomic) NSString *logDirectory;
 @property(strong, nonatomic) NSString *logFilename;
 @end
@@ -44,6 +48,12 @@
 {
     self = [super init];
     if (self) {
+        self.userDefaults = [NSUserDefaults standardUserDefaults];
+        if ([self.userDefaults objectForKey:STARLIST]) {
+            self.starList = [[NSMutableArray alloc]initWithArray:[self.userDefaults objectForKey:STARLIST]];
+        }else{
+            self.starList = [[NSMutableArray alloc]init];
+        }
         //将NSlog打印信息保存到Document目录下的Log文件夹下
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         self.logDirectory = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"Log"];
@@ -133,6 +143,36 @@ void UncaughtExceptionHandler(NSException* exception)
 -(id)getListView
 {
     return [[SuperLogerListView alloc]init];
+}
+
+/**
+ *  Star with filename
+ *
+ *  @param filename filename log filename
+ *
+ *  @return Is star succee
+ */
+-(BOOL)starWithFilename:(NSString *)filename
+{
+    if ([self.starList containsObject:filename]) {
+        [self.starList removeObject:filename];
+    }else{
+        [self.starList addObject:filename];
+    }
+    [self.userDefaults setObject:self.starList forKey:STARLIST];
+    return [self.userDefaults synchronize];
+}
+
+/**
+ *  Is file stared
+ *
+ *  @param filename log filename
+ *
+ *  @return is file stared
+ */
+-(BOOL)isStaredWithFilename:(NSString *)filename
+{
+    return [self.starList containsObject:filename];
 }
 
 /**

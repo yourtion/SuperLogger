@@ -93,6 +93,9 @@
 {
     UITableViewCell *cell = [[UITableViewCell alloc]init];
     cell.textLabel.text = self.fileList[indexPath.row];
+    if ([[SuperLogger sharedInstance] isStaredWithFilename:self.fileList[indexPath.row]]) {
+        cell.accessoryType = UITableViewCellAccessoryDetailButton;
+    }
     return cell;
 }
 
@@ -105,19 +108,25 @@
 
 - (void)exportTapped:(id)sender
 {
+    NSString *isStar = [[SuperLogger sharedInstance] isStaredWithFilename:_tempFilename] ? @"Unstar" : @"Star";
     UIActionSheet *actionSheet = [[UIActionSheet alloc]
                                   initWithTitle:_tempFilename
                                   delegate:self
                                   cancelButtonTitle:@"Cancel"
                                   destructiveButtonTitle:nil
-                                  otherButtonTitles:@"Preview", @"Send via Email", @"Delete", nil];
+                                  otherButtonTitles:isStar, @"Preview", @"Send via Email", @"Delete", nil];
     [actionSheet showInView:self.view];
-    
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex ==  0) {
+        [[SuperLogger sharedInstance]starWithFilename:_tempFilename];
+        self.fileList = nil;
+        self.fileList = [[SuperLogger sharedInstance]getLogList];
+        [self.tableView reloadData];
+    }
+    else if (buttonIndex ==  1) {
         SuperLoggerPreviewView *pre = [[SuperLoggerPreviewView alloc]init];
         pre.logData = [[SuperLogger sharedInstance] getDataWithFilename:_tempFilename];
         pre.logFilename = _tempFilename;
@@ -125,7 +134,7 @@
             [self presentViewController:pre animated:YES completion:nil];
         });
     }
-    else if (buttonIndex == 1) {
+    else if (buttonIndex == 2) {
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             SuperLogger *logger = [SuperLogger sharedInstance];
             NSData *tempData = [logger getDataWithFilename:_tempFilename];
@@ -143,7 +152,7 @@
             }
         }];
     }
-    else if (buttonIndex == 2) {
+    else if (buttonIndex == 3) {
         [[SuperLogger sharedInstance]deleteLogWithFilename:_tempFilename];
         self.fileList = nil;
         self.fileList = [[SuperLogger sharedInstance]getLogList];
