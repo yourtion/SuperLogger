@@ -121,7 +121,9 @@
         SuperLoggerPreviewView *pre = [[SuperLoggerPreviewView alloc]init];
         pre.logData = [[SuperLogger sharedInstance] getDataWithFilename:_tempFilename];
         pre.logFilename = _tempFilename;
-        [self presentViewController:pre animated:YES completion:nil];
+        dispatch_async(dispatch_get_main_queue(), ^(void){
+            [self presentViewController:pre animated:YES completion:nil];
+        });
     }
     else if (buttonIndex == 1) {
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
@@ -135,7 +137,9 @@
                 [picker setToRecipients:[NSArray array]];
                 [picker setMessageBody:logger.mailContect isHTML:NO];
                 [picker setMailComposeDelegate:self];
-                [self presentViewController:picker animated:YES completion:nil];
+                dispatch_async(dispatch_get_main_queue(), ^(void){
+                    [self presentViewController:picker animated:YES completion:nil];
+                });
             }
         }];
     }
