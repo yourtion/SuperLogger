@@ -13,13 +13,13 @@ Pod::Spec.new do |s|
                    * Finally, don't worry about the indent, CocoaPods strips it!
                    DESC
 
-  s.homepage     = "https://github.com/Oggerschummer/SuperLogger"
-  s.screenshots  = "https://raw.githubusercontent.com/Oggerschummer/SuperLogger/master/ScreenShot/ScreenShot1.PNG", "https://raw.githubusercontent.com/Oggerschummer/SuperLogger/master/ScreenShot/ScreenShot2.PNG", "https://raw.githubusercontent.com/Oggerschummer/SuperLogger/master/ScreenShot/ScreenShot3.PNG"
+  s.homepage     = "https://github.com/yourtion/SuperLogger"
+  s.screenshots  = "https://raw.githubusercontent.com/yourtion/SuperLogger/master/ScreenShot/ScreenShot1.PNG", "https://raw.githubusercontent.com/yourtion/SuperLogger/master/ScreenShot/ScreenShot2.PNG", "https://raw.githubusercontent.com/yourtion/SuperLogger/master/ScreenShot/ScreenShot3.PNG"
 
   s.license      = "Apache License, Version 2.0"
   s.author             = { "Yourtion" => "yourtion@gmail.com" }
   s.platform     = :ios
-  s.source       = { :git => "https://github.com/Oggerschummer/SuperLogger.git", :tag => "0.5.0" }
+  s.source       = { :git => "https://github.com/yourtion/SuperLogger.git", :tag => "0.5.0" }
   s.source_files  = "SuperLogger"
   s.frameworks  = "Foundation", "UIKit", "MessageUI"
   s.requires_arc = true
