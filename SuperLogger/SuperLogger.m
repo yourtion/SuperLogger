@@ -100,7 +100,7 @@ void UncaughtExceptionHandler(NSException* exception)
         [fileManager createDirectoryAtPath:logDirectory  withIntermediateDirectories:YES attributes:nil error:nil];
     }
 
-    NSString *logFilePath = [logDirectory stringByAppendingPathComponent:@"CashLog.log"];
+    NSString *logFilePath = [logDirectory stringByAppendingPathComponent:@"CrashLog.log"];
     NSString *dateStr = [SuperLoggerFunctions getDateTimeStringWithFormat:@"yyyy-MM-dd HH:mm:ss"];
     
     NSString *crashString = [NSString stringWithFormat:@"<- %@ ->[ Uncaught Exception ]\r\nName: %@, Reason: %@\r\n[ Fe Symbols Start ]\r\n%@[ Fe Symbols End ]\r\n\r\n", dateStr, name, reason, strSymbols];
@@ -143,7 +143,7 @@ void UncaughtExceptionHandler(NSException* exception)
     NSArray *filename = [SuperLoggerFunctions getFilenamelistOfType:@"log" fromDirPath:_logDirectory];
     NSInteger count = filename.count;
     for (int i = 0; i<count; i++) {
-        if (![[filename objectAtIndex:i]  isEqualToString: @"CashLog.log"]
+        if (![[filename objectAtIndex:i]  isEqualToString: @"CrashLog.log"]
             && ![[filename objectAtIndex:i] isEqualToString: self.logFilename]) {
             [self deleteLogWithFilename:[filename objectAtIndex:i]];
         }
