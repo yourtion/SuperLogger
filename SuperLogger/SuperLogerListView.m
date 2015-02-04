@@ -55,13 +55,13 @@
 {
     [super viewDidLoad];
     self.fileList = [[SuperLogger sharedInstance]getLogList];
-    self.navigationItem.title = @"LogList";
+    self.navigationItem.title = NSLocalizedStringFromTable(@"SL_LogList", @"SLLocalizable", @"Log file list");
     self.navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectZero];
     [self.view addSubview:_navigationBar];
     [self.navigationBar pushNavigationItem:self.navigationItem animated:NO];
-    UIBarButtonItem *backBtn=[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(done)];
+    UIBarButtonItem *backBtn=[[UIBarButtonItem alloc] initWithTitle:NSLocalizedStringFromTable( @"SL_Back", @"SLLocalizable", @"Back") style:UIBarButtonItemStylePlain target:self action:@selector(done)];
     [self.navigationItem setLeftBarButtonItem:backBtn];
-    UIBarButtonItem *cleanBtn=[[UIBarButtonItem alloc] initWithTitle:@"Clean" style:UIBarButtonItemStylePlain target:self action:@selector(clean)];
+    UIBarButtonItem *cleanBtn=[[UIBarButtonItem alloc] initWithTitle:NSLocalizedStringFromTable( @"SL_Clean",@"SLLocalizable",@"Clean") style:UIBarButtonItemStylePlain target:self action:@selector(clean)];
     [self.navigationItem setRightBarButtonItem:cleanBtn];
 }
 
@@ -108,9 +108,9 @@
     UIActionSheet *actionSheet = [[UIActionSheet alloc]
                                   initWithTitle:_tempFilename
                                   delegate:self
-                                  cancelButtonTitle:@"Cancel"
+                                  cancelButtonTitle:NSLocalizedStringFromTable( @"SL_Cancel", @"SLLocalizable",@"Cancel")
                                   destructiveButtonTitle:nil
-                                  otherButtonTitles:@"Preview", @"Send via Email", @"Delete", nil];
+                                  otherButtonTitles:NSLocalizedStringFromTable( @"SL_Preview", @"SLLocalizable",@"Preview"),NSLocalizedStringFromTable( @"SL_SendViaMail", @"SLLocalizable", @"Send via Email"), NSLocalizedStringFromTable( @"SL_Delete", @"SLLocalizable",@"Delete"), nil];
     [actionSheet showInView:self.view];
     
 }

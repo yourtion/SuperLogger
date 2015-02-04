@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  Pods
+
+  Created by t.may on 03/02/15.
+
+*/
+
+"SL_LogList" = "Protokolldateien";
+"SL_Back" = "Zurück";
+"SL_Clean" = "Löschen";
+"SL_Cancel" = "Abbrechen";
+"SL_Preview" = "Vorschau";
+"SL_SendViaMail" = "Per Mail verschicken";
+"SL_Delete" = "Löschen";
+"SL_Send" = "Senden";
+
