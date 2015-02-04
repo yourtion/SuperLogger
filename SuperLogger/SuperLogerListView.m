@@ -147,7 +147,11 @@
                 [picker setMessageBody:logger.mailContect isHTML:NO];
                 [picker setMailComposeDelegate:self];
                 dispatch_async(dispatch_get_main_queue(), ^(void){
-                    [self presentViewController:picker animated:YES completion:nil];
+                    @try {
+                        [self presentViewController:picker animated:YES completion:nil];
+                    }
+                    @catch (NSException * e)
+                    { NSLog(@"Exception: %@", e); }
                 });
             }
         }];

@@ -76,7 +76,11 @@
             [picker setToRecipients:[NSArray array]];
             [picker setMessageBody:logger.mailContect isHTML:NO];
             [picker setMailComposeDelegate:self];
-            [self presentViewController:picker animated:YES completion:nil];
+            @try {
+                [self presentViewController:picker animated:YES completion:nil];
+            }
+            @catch (NSException * e)
+                { NSLog(@"Exception: %@", e); }
         }
     }];
 }
