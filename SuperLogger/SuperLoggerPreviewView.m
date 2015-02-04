@@ -45,9 +45,9 @@
     self.navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectZero];
     [self.view addSubview:_navigationBar];
     [self.navigationBar pushNavigationItem:self.navigationItem animated:NO];
-    UIBarButtonItem *backBtn=[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(done)];
+    UIBarButtonItem *backBtn=[[UIBarButtonItem alloc] initWithTitle: NSLocalizedStringFromTable(@"SL_Back", @"SLLocalizable",@"Back") style:UIBarButtonItemStylePlain target:self action:@selector(done)];
     [self.navigationItem setLeftBarButtonItem:backBtn];
-    UIBarButtonItem *sendBtn=[[UIBarButtonItem alloc] initWithTitle:@"Send" style:UIBarButtonItemStylePlain target:self action:@selector(send)];
+    UIBarButtonItem *sendBtn=[[UIBarButtonItem alloc] initWithTitle:NSLocalizedStringFromTable(@"SL_Send", @"SLLocalizable",@"Send") style:UIBarButtonItemStylePlain target:self action:@selector(send)];
     [self.navigationItem setRightBarButtonItem:sendBtn];
     
     NSString* newStr = [[NSString alloc] initWithData:self.logData encoding:NSUTF8StringEncoding];

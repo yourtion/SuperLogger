@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  Pods
+
+  Created by t.may on 03/02/15.
+
+*/
+
+"SL_LogList" = "Log file list";
+"SL_Back" = "Back";
+"SL_Clean" = "Clean";
+"SL_Cancel" = "Cancel";
+"SL_Preview" = "Preview";
+"SL_SendViaMail" = "Send via Email";
+"SL_Delete" = "Delete";
+"SL_Send" = "Send";
+
