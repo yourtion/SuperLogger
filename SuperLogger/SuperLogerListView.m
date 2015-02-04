@@ -55,13 +55,13 @@
 {
     [super viewDidLoad];
     self.fileList = [[SuperLogger sharedInstance]getLogList];
-    self.navigationItem.title = @"LogList";
+    self.navigationItem.title = NSLocalizedStringFromTable(@"SL_LogList", @"SLLocalizable", @"Log file list");
     self.navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectZero];
     [self.view addSubview:_navigationBar];
     [self.navigationBar pushNavigationItem:self.navigationItem animated:NO];
-    UIBarButtonItem *backBtn=[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(done)];
+    UIBarButtonItem *backBtn=[[UIBarButtonItem alloc] initWithTitle:NSLocalizedStringFromTable( @"SL_Back", @"SLLocalizable", @"Back") style:UIBarButtonItemStylePlain target:self action:@selector(done)];
     [self.navigationItem setLeftBarButtonItem:backBtn];
-    UIBarButtonItem *cleanBtn=[[UIBarButtonItem alloc] initWithTitle:@"Clean" style:UIBarButtonItemStylePlain target:self action:@selector(clean)];
+    UIBarButtonItem *cleanBtn=[[UIBarButtonItem alloc] initWithTitle:NSLocalizedStringFromTable( @"SL_Clean",@"SLLocalizable",@"Clean") style:UIBarButtonItemStylePlain target:self action:@selector(clean)];
     [self.navigationItem setRightBarButtonItem:cleanBtn];
 }
 
@@ -108,13 +108,13 @@
 
 - (void)exportTapped:(id)sender
 {
-    NSString *isStar = [[SuperLogger sharedInstance] isStaredWithFilename:_tempFilename] ? @"Unstar" : @"Star";
+    NSString *isStar = [[SuperLogger sharedInstance] isStaredWithFilename:_tempFilename] ? NSLocalizedStringFromTable( @"SL_Unstar", @"SLLocalizable",@"Unstar"): NSLocalizedStringFromTable( @"SL_Star", @"SLLocalizable",@"Star");
     UIActionSheet *actionSheet = [[UIActionSheet alloc]
                                   initWithTitle:_tempFilename
                                   delegate:self
-                                  cancelButtonTitle:@"Cancel"
+                                  cancelButtonTitle:NSLocalizedStringFromTable( @"SL_Cancel", @"SLLocalizable",@"Cancel")
                                   destructiveButtonTitle:nil
-                                  otherButtonTitles:isStar, @"Preview", @"Send via Email", @"Delete", nil];
+                                  otherButtonTitles:isStar,NSLocalizedStringFromTable( @"SL_Preview", @"SLLocalizable",@"Preview"),NSLocalizedStringFromTable( @"SL_SendViaMail", @"SLLocalizable", @"Send via Email"), NSLocalizedStringFromTable( @"SL_Delete", @"SLLocalizable",@"Delete"), nil];
     [actionSheet showInView:self.view];
 }
 
@@ -147,7 +147,11 @@
                 [picker setMessageBody:logger.mailContect isHTML:NO];
                 [picker setMailComposeDelegate:self];
                 dispatch_async(dispatch_get_main_queue(), ^(void){
-                    [self presentViewController:picker animated:YES completion:nil];
+                    @try {
+                        [self presentViewController:picker animated:YES completion:nil];
+                    }
+                    @catch (NSException * e)
+                    { NSLog(@"Exception: %@", e); }
                 });
             }
         }];
