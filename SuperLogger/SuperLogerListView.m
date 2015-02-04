@@ -54,8 +54,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSBundle* myBundle;
+    myBundle = [NSBundle bundleWithIdentifier:@"SuperLogger.bundle"];
     self.fileList = [[SuperLogger sharedInstance]getLogList];
-    self.navigationItem.title = NSLocalizedStringFromTable(@"SL_LogList", @"SLLocalizable", @"Log file list");
+    self.navigationItem.title = NSLocalizedStringFromTableInBundle( @"SL_LogList", @"SLLocalizable", myBundle, @"Log file list");
     self.navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectZero];
     [self.view addSubview:_navigationBar];
     [self.navigationBar pushNavigationItem:self.navigationItem animated:NO];
@@ -105,10 +108,14 @@
 
 - (void)exportTapped:(id)sender
 {
+    
+    NSBundle* myBundle;
+    myBundle = [NSBundle bundleWithPath:@"Resources/SuperLogger.bundle"];
+
     UIActionSheet *actionSheet = [[UIActionSheet alloc]
                                   initWithTitle:_tempFilename
                                   delegate:self
-                                  cancelButtonTitle:NSLocalizedStringFromTable( @"SL_Cancel", @"SLLocalizable",@"Cancel")
+                                  cancelButtonTitle:NSLocalizedStringFromTableInBundle( @"SL_Cancel", @"SLLocalizable", myBundle, @"Cancel")
                                   destructiveButtonTitle:nil
                                   otherButtonTitles:NSLocalizedStringFromTable( @"SL_Preview", @"SLLocalizable",@"Preview"),NSLocalizedStringFromTable( @"SL_SendViaMail", @"SLLocalizable", @"Send via Email"), NSLocalizedStringFromTable( @"SL_Delete", @"SLLocalizable",@"Delete"), nil];
     [actionSheet showInView:self.view];
