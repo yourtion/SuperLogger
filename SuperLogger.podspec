@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "SuperLogger"
-  s.version      = "0.5.0"
+  s.version      = "0.6.0"
   s.summary      = "Save NSLog() to file and send email to developer."
 
   s.description  = <<-DESC
@@ -21,6 +21,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.source       = { :git => "https://github.com/Oggerschummer/SuperLogger.git", :tag => "0.5.0" }
   s.source_files  = "SuperLogger"
+  s.ios.resource_bundle = { 'SuperLogger' => 'SuperLogger/Resources/*' }
   s.frameworks  = "Foundation", "UIKit", "MessageUI"
   s.requires_arc = true
 
