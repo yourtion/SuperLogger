@@ -17,6 +17,7 @@
 @property(strong, nonatomic) NSMutableArray *starList;
 @property(strong, nonatomic) NSString *logDirectory;
 @property(strong, nonatomic) NSString *logFilename;
+@property(strong, nonatomic) NSString *logFileFormat;
 @end
 
 @implementation SuperLogger
@@ -53,6 +54,7 @@
         //将NSlog打印信息保存到Document目录下的Log文件夹下
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         self.logDirectory = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"Log"];
+        self.logFileFormat = @"yyyy-MM-dd_HH:mm:ss";
     }
     return self;
 }
@@ -77,7 +79,7 @@
         [fileManager createDirectoryAtPath:_logDirectory withIntermediateDirectories:YES attributes:nil error:nil];
     }
     
-    NSString *dateStr = [SuperLoggerFunctions getDateTimeStringWithFormat:@"yyyy-MM-dd_HH:mm"];
+    NSString *dateStr = [SuperLoggerFunctions getDateTimeStringWithFormat:_logFileFormat];
     self.logFilename = [NSString stringWithFormat:@"%@.log",dateStr];
     NSString *logFilePath = [_logDirectory stringByAppendingPathComponent:_logFilename];
     
@@ -164,14 +166,55 @@ void UncaughtExceptionHandler(NSException* exception)
  */
 -(void)cleanLogs
 {
-    NSArray *filename = [SuperLoggerFunctions getFilenamelistOfType:@"log" fromDirPath:_logDirectory];
-    NSInteger count = filename.count;
-    for (int i = 0; i<count; i++) {
-        if (![[filename objectAtIndex:i]  isEqualToString: @"CrashLog.log"]
-            && ![[filename objectAtIndex:i] isEqualToString: self.logFilename]) {
-            [self deleteLogWithFilename:[filename objectAtIndex:i]];
+    NSArray *files = [SuperLoggerFunctions getFilenamelistOfType:@"log" fromDirPath:_logDirectory];
+    for (NSString *file in files) {
+        if (![file isEqualToString: @"CrashLog.log"] &&
+            ![file isEqualToString: self.logFilename]) {
+            [self deleteLogWithFilename:file];
         }
     }
+}
+
+/**
+ *  Delete crash logs
+ */
+-(void)deleteCrash
+{
+    [self deleteLogWithFilename:@"CrashLog.log"];
+}
+
+-(BOOL)cleanLogsBefore:(NSDate *)before keeping:(int)keepMaxLogs withStarts:(BOOL)starts
+{
+    if (!before && keepMaxLogs == 0) {
+        [self cleanLogs];
+    }
+    NSMutableArray *logs = [[NSMutableArray alloc]initWithArray:[self getLogList]];
+    [logs removeObject:@"CrashLog.log"];
+    if (!starts) {
+        for (NSString *file in _starList) {
+            [logs removeObject:file];
+        }
+    }
+    if (keepMaxLogs > 1 && [logs count] > keepMaxLogs) {
+        [logs removeObjectsInRange:NSMakeRange(0, keepMaxLogs)];
+        for (NSString *file in logs) {
+            [self deleteLogWithFilename:file];
+        }
+    }else{
+        if (!before) {
+            return NO;
+        }
+    }
+
+    if (before) {
+        for (NSString *file in logs) {
+            NSDate *fileDate = [SuperLoggerFunctions getDateTimeFromString:[file substringToIndex:[file length]-4] withFormat:_logFileFormat];
+            if ([fileDate timeIntervalSinceDate:before] < 0 && ![file isEqualToString: self.logFilename]) {
+                [self deleteLogWithFilename:file];
+            }
+        }
+    }
+    return YES;
 }
 
 /**

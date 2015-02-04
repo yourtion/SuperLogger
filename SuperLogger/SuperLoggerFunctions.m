@@ -15,9 +15,22 @@
 +(NSString *)getDateTimeStringWithFormat:(NSString *)format
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:[NSLocale currentLocale ].localeIdentifier ]];
-    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    [formatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:[NSLocale currentLocale ].localeIdentifier]];
+    [formatter setDateFormat:format];
     return [formatter stringFromDate:[NSDate date]];
+}
+
+/**
+ *  getDateTimeFromString
+ */
++(NSDate *)getDateTimeFromString:(NSString *)string withFormat:(NSString *)format
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:[NSLocale currentLocale ].localeIdentifier]];
+    [formatter setDateFormat:format];
+    NSDate *date = [[NSDate alloc] init];
+    date = [formatter dateFromString:string];
+    return date;
 }
 
 /**

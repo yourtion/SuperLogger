@@ -29,8 +29,22 @@
     NSLog(@"This is a log.");
 }
 
-- (IBAction)addCash:(id)sender {
+- (IBAction)addCrash:(id)sender {
     [self delete:nil];
+}
+
+- (IBAction)l2logs:(id)sender {
+    [[SuperLogger sharedInstance]cleanLogsBefore:nil keeping:2 withStarts:NO];
+}
+- (IBAction)l4logs:(id)sender {
+    [[SuperLogger sharedInstance]cleanLogsBefore:nil keeping:2 withStarts:YES];
+}
+- (IBAction)delCrash:(id)sender {
+     [[SuperLogger sharedInstance]deleteCrash];
+}
+- (IBAction)del5m:(id)sender {
+    NSDate *five = [[NSDate date]dateByAddingTimeInterval:-60*5];
+    [[SuperLogger sharedInstance]cleanLogsBefore:five keeping:0 withStarts:YES];
 }
 
 - (IBAction)showLogList:(id)sender {
