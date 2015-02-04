@@ -34,10 +34,13 @@
 }
 
 - (IBAction)l2logs:(id)sender {
-    [[SuperLogger sharedInstance]cleanLogsBefore:nil keeping:2 deletingCrashes:NO];
+    [[SuperLogger sharedInstance]cleanLogsBefore:nil keeping:2 withStarts:NO];
+}
+- (IBAction)l4logs:(id)sender {
+    [[SuperLogger sharedInstance]cleanLogsBefore:nil keeping:2 withStarts:YES];
 }
 - (IBAction)delCrash:(id)sender {
-     [[SuperLogger sharedInstance]cleanLogsBefore:nil keeping:0 deletingCrashes:YES];
+     [[SuperLogger sharedInstance]deleteCrash];
 }
 
 - (IBAction)showLogList:(id)sender {

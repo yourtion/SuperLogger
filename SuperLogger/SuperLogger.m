@@ -54,7 +54,7 @@
         //将NSlog打印信息保存到Document目录下的Log文件夹下
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         self.logDirectory = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"Log"];
-        self.logFileFormat = @"yyyy-MM-dd_HH:mm";
+        self.logFileFormat = @"yyyy-MM-dd_HH:mm:ss";
     }
     return self;
 }
@@ -175,24 +175,31 @@ void UncaughtExceptionHandler(NSException* exception)
     }
 }
 
--(BOOL)cleanLogsBefore:(NSDate *)before keeping:(int)keepMaxLogs deletingCrashes:(BOOL)deleteCrashes
+/**
+ *  Delete crash logs
+ */
+-(void)deleteCrash
+{
+    [self deleteLogWithFilename:@"CrashLog.log"];
+}
+
+-(BOOL)cleanLogsBefore:(NSDate *)before keeping:(int)keepMaxLogs withStarts:(BOOL)starts
 {
     if (!before && keepMaxLogs == 0) {
         [self cleanLogs];
     }
-    if (deleteCrashes) {
-        [self deleteLogWithFilename:@"CrashLog.log"];
-    }
     NSMutableArray *logs = [[NSMutableArray alloc]initWithArray:[self getLogList]];
-    NSLog(@"%@",logs);
     [logs removeObject:@"CrashLog.log"];
-    NSLog(@"CrashLog.log:%@",logs);
+    if (!starts) {
+        for (NSString *file in _starList) {
+            [logs removeObject:file];
+        }
+    }
     if (keepMaxLogs > 1 && [logs count] > keepMaxLogs) {
-        [logs removeObjectsInRange:(NSRange){0, keepMaxLogs-1}];
+        [logs removeObjectsInRange:NSMakeRange(0, keepMaxLogs)];
         for (NSString *file in logs) {
             [self deleteLogWithFilename:file];
         }
-        NSLog(@"Done:%@",logs);
     }else{
         return NO;
     }

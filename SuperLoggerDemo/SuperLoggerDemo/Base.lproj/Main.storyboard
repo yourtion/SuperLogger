@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h4A-63-n2X">
-                                <rect key="frame" x="118" y="269" width="84" height="30"/>
+                                <rect key="frame" x="144" y="269" width="84" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="84" id="ZvW-o0-1UB"/>
                                 </constraints>
@@ -30,7 +30,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gCW-6O-TqV">
-                                <rect key="frame" x="106" y="518" width="108" height="30"/>
+                                <rect key="frame" x="106" y="518" width="161" height="30"/>
                                 <state key="normal" title="ShowLogList">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -39,7 +39,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q3V-u9-kGB">
-                                <rect key="frame" x="116" y="231" width="88" height="30"/>
+                                <rect key="frame" x="142" y="231" width="88" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="88" id="gLH-7u-3lH"/>
                                 </constraints>
@@ -51,16 +51,25 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WE1-GF-LeD">
-                                <rect key="frame" x="108" y="307" width="104" height="30"/>
-                                <state key="normal" title="Leave 2 logs">
+                                <rect key="frame" x="104" y="307" width="157" height="30"/>
+                                <state key="normal" title="Leave 2 logs and Stars">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="l2logs:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="buw-o6-DLo"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kad-fk-Rqp">
-                                <rect key="frame" x="112" y="345" width="96" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S4l-hB-mfZ">
+                                <rect key="frame" x="141" y="345" width="91" height="30"/>
+                                <state key="normal" title="Leave 4 logs ">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="l4logs:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="CZ2-Ob-FbO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kad-fk-Rqp">
+                                <rect key="frame" x="112" y="383" width="149" height="30"/>
                                 <state key="normal" title="DeleteCrash">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -72,15 +81,20 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Q3V-u9-kGB" firstAttribute="centerX" secondItem="h4A-63-n2X" secondAttribute="centerX" id="5QH-Cf-nbs"/>
+                            <constraint firstItem="kad-fk-Rqp" firstAttribute="top" secondItem="WE1-GF-LeD" secondAttribute="bottom" constant="46" id="5zV-X6-5UM"/>
+                            <constraint firstItem="S4l-hB-mfZ" firstAttribute="centerX" secondItem="kad-fk-Rqp" secondAttribute="centerX" id="68F-B7-zPa"/>
                             <constraint firstItem="WE1-GF-LeD" firstAttribute="top" secondItem="h4A-63-n2X" secondAttribute="bottom" constant="8" symbolic="YES" id="6DP-ml-an3"/>
-                            <constraint firstItem="WE1-GF-LeD" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="92" id="6hy-7W-Zyl"/>
+                            <constraint firstItem="WE1-GF-LeD" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="88" id="6hy-7W-Zyl"/>
+                            <constraint firstItem="kad-fk-Rqp" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="96" id="FYi-ei-IFq"/>
+                            <constraint firstItem="kad-fk-Rqp" firstAttribute="centerX" secondItem="WE1-GF-LeD" secondAttribute="centerX" constant="4" id="Hzp-NU-ZzA"/>
                             <constraint firstItem="gCW-6O-TqV" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="90" id="Q49-cx-J5W"/>
-                            <constraint firstItem="WE1-GF-LeD" firstAttribute="centerX" secondItem="h4A-63-n2X" secondAttribute="centerX" id="UTZ-Vj-GQp"/>
+                            <constraint firstItem="WE1-GF-LeD" firstAttribute="centerX" secondItem="h4A-63-n2X" secondAttribute="centerX" constant="-3.5" id="UTZ-Vj-GQp"/>
                             <constraint firstItem="h4A-63-n2X" firstAttribute="top" secondItem="Q3V-u9-kGB" secondAttribute="bottom" constant="8" symbolic="YES" id="VTd-fP-4f5"/>
                             <constraint firstItem="h4A-63-n2X" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="bjE-iM-BoX"/>
+                            <constraint firstItem="S4l-hB-mfZ" firstAttribute="top" secondItem="WE1-GF-LeD" secondAttribute="bottom" constant="8" symbolic="YES" id="cRE-4Y-mxx"/>
                             <constraint firstItem="h4A-63-n2X" firstAttribute="centerX" secondItem="gCW-6O-TqV" secondAttribute="centerX" id="nIT-HZ-Va3"/>
                             <constraint firstAttribute="bottom" secondItem="gCW-6O-TqV" secondAttribute="bottom" constant="20" symbolic="YES" id="oQQ-8B-nqV"/>
-                            <constraint firstItem="Q3V-u9-kGB" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="v2x-rt-A5T"/>
+                            <constraint firstItem="Q3V-u9-kGB" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" constant="26" id="v2x-rt-A5T"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
