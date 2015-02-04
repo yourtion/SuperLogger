@@ -201,15 +201,17 @@ void UncaughtExceptionHandler(NSException* exception)
             [self deleteLogWithFilename:file];
         }
     }else{
-        return NO;
+        if (!before) {
+            return NO;
+        }
     }
+
     if (before) {
         for (NSString *file in logs) {
-            NSDate *fileDate = [SuperLoggerFunctions getDateTimeFromString:file withFormat:_logFileFormat];
-            if ([fileDate timeIntervalSinceDate:before] < 0) {
+            NSDate *fileDate = [SuperLoggerFunctions getDateTimeFromString:[file substringToIndex:[file length]-4] withFormat:_logFileFormat];
+            if ([fileDate timeIntervalSinceDate:before] < 0 && ![file isEqualToString: self.logFilename]) {
                 [self deleteLogWithFilename:file];
             }
-            [self deleteLogWithFilename:file];
         }
     }
     return YES;
