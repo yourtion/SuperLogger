@@ -11,10 +11,6 @@
 @implementation SuperLoggerFunctions
 /**
  *  getDateTimeStringWithFormat
- *
- *  @param format like "yyyy-MM-dd HH:mm:ss"
- *
- *  @return NSString like 2014-12-02 12:59:30
  */
 +(NSString *)getDateTimeStringWithFormat:(NSString *)format
 {
@@ -26,11 +22,6 @@
 
 /**
  *  getFilenamelistOfType
- *
- *  @param type    fileTile like @"log"
- *  @param dirPath filePath
- *
- *  @return filename array
  */
 +(NSArray *)getFilenamelistOfType:(NSString *)type fromDirPath:(NSString *)dirPath
 {
@@ -56,10 +47,6 @@
 
 /**
  *  isFileExistAtPath
- *
- *  @param fileFullPath fileFullPath
- *
- *  @return is File Exist
  */
 +(BOOL)isFileExistAtPath:(NSString*)fileFullPath
 {

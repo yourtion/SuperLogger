@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB68D88A1A81F2C0006A3A32 /* SuperLoggerPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB68D8891A81F2C0006A3A32 /* SuperLoggerPreviewView.m */; };
 		CBF026081A49AB8100F28BC0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF026071A49AB8100F28BC0 /* main.m */; };
 		CBF0260B1A49AB8100F28BC0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF0260A1A49AB8100F28BC0 /* AppDelegate.m */; };
 		CBF0260E1A49AB8100F28BC0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF0260D1A49AB8100F28BC0 /* ViewController.m */; };
@@ -16,10 +17,10 @@
 		CBF026321A49ABC000F28BC0 /* SuperLogerListView.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF0262D1A49ABC000F28BC0 /* SuperLogerListView.m */; };
 		CBF026331A49ABC000F28BC0 /* SuperLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF0262F1A49ABC000F28BC0 /* SuperLogger.m */; };
 		CBF026341A49ABC000F28BC0 /* SuperLoggerFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF026311A49ABC000F28BC0 /* SuperLoggerFunctions.m */; };
-		CBF026371A4A5F7700F28BC0 /* SuperLoggerPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF026361A4A5F7700F28BC0 /* SuperLoggerPreviewView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CB68D8891A81F2C0006A3A32 /* SuperLoggerPreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperLoggerPreviewView.m; sourceTree = "<group>"; };
 		CBF026021A49AB8100F28BC0 /* SuperLoggerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperLoggerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBF026061A49AB8100F28BC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBF026071A49AB8100F28BC0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -39,7 +40,6 @@
 		CBF026301A49ABC000F28BC0 /* SuperLoggerFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperLoggerFunctions.h; sourceTree = "<group>"; };
 		CBF026311A49ABC000F28BC0 /* SuperLoggerFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperLoggerFunctions.m; sourceTree = "<group>"; };
 		CBF026351A4A5F7700F28BC0 /* SuperLoggerPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperLoggerPreviewView.h; sourceTree = "<group>"; };
-		CBF026361A4A5F7700F28BC0 /* SuperLoggerPreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperLoggerPreviewView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,7 +118,7 @@
 				CBF0262C1A49ABC000F28BC0 /* SuperLogerListView.h */,
 				CBF0262D1A49ABC000F28BC0 /* SuperLogerListView.m */,
 				CBF026351A4A5F7700F28BC0 /* SuperLoggerPreviewView.h */,
-				CBF026361A4A5F7700F28BC0 /* SuperLoggerPreviewView.m */,
+				CB68D8891A81F2C0006A3A32 /* SuperLoggerPreviewView.m */,
 				CBF0262E1A49ABC000F28BC0 /* SuperLogger.h */,
 				CBF0262F1A49ABC000F28BC0 /* SuperLogger.m */,
 				CBF026301A49ABC000F28BC0 /* SuperLoggerFunctions.h */,
@@ -200,7 +200,7 @@
 			files = (
 				CBF0260E1A49AB8100F28BC0 /* ViewController.m in Sources */,
 				CBF026341A49ABC000F28BC0 /* SuperLoggerFunctions.m in Sources */,
-				CBF026371A4A5F7700F28BC0 /* SuperLoggerPreviewView.m in Sources */,
+				CB68D88A1A81F2C0006A3A32 /* SuperLoggerPreviewView.m in Sources */,
 				CBF0260B1A49AB8100F28BC0 /* AppDelegate.m in Sources */,
 				CBF026321A49ABC000F28BC0 /* SuperLogerListView.m in Sources */,
 				CBF026331A49ABC000F28BC0 /* SuperLogger.m in Sources */,

@@ -26,8 +26,6 @@
 
 /**
  *  SuperLogger sharedInstance
- *
- *  @return SuperLogger sharedInstance
  */
 + (SuperLogger *)sharedInstance
 {
@@ -41,8 +39,6 @@
 
 /**
  *  SuperLogger init (set logDirectory)
- *
- *  @return SuperLogger
  */
 - (instancetype)init
 {
@@ -127,8 +123,6 @@ void UncaughtExceptionHandler(NSException* exception)
 
 /**
  *  Get all logfile
- *
- *  @return logfile list Array
  */
 -(NSArray *)getLogList
 {
@@ -137,8 +131,6 @@ void UncaughtExceptionHandler(NSException* exception)
 
 /**
  *  Get SuperLogerListView
- *
- *  @return UITableView logger listview
  */
 -(id)getListView
 {
@@ -147,10 +139,6 @@ void UncaughtExceptionHandler(NSException* exception)
 
 /**
  *  Star with filename
- *
- *  @param filename filename log filename
- *
- *  @return Is star succee
  */
 -(BOOL)starWithFilename:(NSString *)filename
 {
@@ -165,10 +153,6 @@ void UncaughtExceptionHandler(NSException* exception)
 
 /**
  *  Is file stared
- *
- *  @param filename log filename
- *
- *  @return is file stared
  */
 -(BOOL)isStaredWithFilename:(NSString *)filename
 {
@@ -192,10 +176,6 @@ void UncaughtExceptionHandler(NSException* exception)
 
 /**
  *  Get logfile's NSData with filename
- *
- *  @param filename log filename
- *
- *  @return logfile content data
  */
 -(NSData *)getDataWithFilename:(NSString *)filename
 {
@@ -205,8 +185,6 @@ void UncaughtExceptionHandler(NSException* exception)
 
 /**
  *  Delete Logfile With Filename
- *
- *  @param filename log filename
  */
 -(void)deleteLogWithFilename:(NSString *)filename
 {
