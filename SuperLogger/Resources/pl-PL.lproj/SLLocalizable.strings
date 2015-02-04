@@ -14,4 +14,6 @@
 "SL_SendViaMail" = "Wyślij przez e-mail";
 "SL_Delete" = "Usunąć";
 "SL_Send" = "Wysłać";
+"SL_Star" = "Gwiazda";
+"SL_Unstar" = "UnGwiazda";
 
