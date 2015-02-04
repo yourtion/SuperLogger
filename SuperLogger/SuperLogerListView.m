@@ -108,13 +108,13 @@
 
 - (void)exportTapped:(id)sender
 {
-    NSString *isStar = [[SuperLogger sharedInstance] isStaredWithFilename:_tempFilename] ? @"Unstar" : @"Star";
+    NSString *isStar = [[SuperLogger sharedInstance] isStaredWithFilename:_tempFilename] ? NSLocalizedStringFromTable( @"SL_Unstar", @"SLLocalizable",@"Unstar"): NSLocalizedStringFromTable( @"SL_Star", @"SLLocalizable",@"Star");
     UIActionSheet *actionSheet = [[UIActionSheet alloc]
                                   initWithTitle:_tempFilename
                                   delegate:self
                                   cancelButtonTitle:NSLocalizedStringFromTable( @"SL_Cancel", @"SLLocalizable",@"Cancel")
                                   destructiveButtonTitle:nil
-                                  otherButtonTitles:NSLocalizedStringFromTable( @"SL_Preview", @"SLLocalizable",@"Preview"),NSLocalizedStringFromTable( @"SL_SendViaMail", @"SLLocalizable", @"Send via Email"), NSLocalizedStringFromTable( @"SL_Delete", @"SLLocalizable",@"Delete"), nil];
+                                  otherButtonTitles:isStar,NSLocalizedStringFromTable( @"SL_Preview", @"SLLocalizable",@"Preview"),NSLocalizedStringFromTable( @"SL_SendViaMail", @"SLLocalizable", @"Send via Email"), NSLocalizedStringFromTable( @"SL_Delete", @"SLLocalizable",@"Delete"), nil];
     [actionSheet showInView:self.view];
 }
 

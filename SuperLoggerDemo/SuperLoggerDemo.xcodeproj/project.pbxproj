@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB4D6AC01A8230C700BA483C /* SLLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CB4D6ABA1A8230C700BA483C /* SLLocalizable.strings */; };
 		CB68D88A1A81F2C0006A3A32 /* SuperLoggerPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB68D8891A81F2C0006A3A32 /* SuperLoggerPreviewView.m */; };
 		CBF026081A49AB8100F28BC0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF026071A49AB8100F28BC0 /* main.m */; };
 		CBF0260B1A49AB8100F28BC0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF0260A1A49AB8100F28BC0 /* AppDelegate.m */; };
@@ -20,6 +21,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CB4D6ABB1A8230C700BA483C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/SLLocalizable.strings; sourceTree = "<group>"; };
+		CB4D6ABC1A8230C700BA483C /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/SLLocalizable.strings; sourceTree = "<group>"; };
+		CB4D6ABD1A8230C700BA483C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SLLocalizable.strings; sourceTree = "<group>"; };
+		CB4D6ABE1A8230C700BA483C /* pl-PL */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pl-PL"; path = "pl-PL.lproj/SLLocalizable.strings"; sourceTree = "<group>"; };
+		CB4D6ABF1A8230C700BA483C /* zh-CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-CN"; path = "zh-CN.lproj/SLLocalizable.strings"; sourceTree = "<group>"; };
 		CB68D8891A81F2C0006A3A32 /* SuperLoggerPreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperLoggerPreviewView.m; sourceTree = "<group>"; };
 		CBF026021A49AB8100F28BC0 /* SuperLoggerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperLoggerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBF026061A49AB8100F28BC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -53,6 +59,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CB4D6AB91A8230C700BA483C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CB4D6ABA1A8230C700BA483C /* SLLocalizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		CBF025F91A49AB8100F28BC0 = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +129,7 @@
 		CBF0262B1A49ABC000F28BC0 /* SuperLogger */ = {
 			isa = PBXGroup;
 			children = (
+				CB4D6AB91A8230C700BA483C /* Resources */,
 				CBF0262C1A49ABC000F28BC0 /* SuperLogerListView.h */,
 				CBF0262D1A49ABC000F28BC0 /* SuperLogerListView.m */,
 				CBF026351A4A5F7700F28BC0 /* SuperLoggerPreviewView.h */,
@@ -169,6 +184,9 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
+				"pl-PL",
+				"zh-CN",
 			);
 			mainGroup = CBF025F91A49AB8100F28BC0;
 			productRefGroup = CBF026031A49AB8100F28BC0 /* Products */;
@@ -187,6 +205,7 @@
 			files = (
 				CBF026111A49AB8100F28BC0 /* Main.storyboard in Resources */,
 				CBF026161A49AB8100F28BC0 /* LaunchScreen.xib in Resources */,
+				CB4D6AC01A8230C700BA483C /* SLLocalizable.strings in Resources */,
 				CBF026131A49AB8100F28BC0 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -211,6 +230,18 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		CB4D6ABA1A8230C700BA483C /* SLLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CB4D6ABB1A8230C700BA483C /* Base */,
+				CB4D6ABC1A8230C700BA483C /* de */,
+				CB4D6ABD1A8230C700BA483C /* en */,
+				CB4D6ABE1A8230C700BA483C /* pl-PL */,
+				CB4D6ABF1A8230C700BA483C /* zh-CN */,
+			);
+			name = SLLocalizable.strings;
+			sourceTree = "<group>";
+		};
 		CBF0260F1A49AB8100F28BC0 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

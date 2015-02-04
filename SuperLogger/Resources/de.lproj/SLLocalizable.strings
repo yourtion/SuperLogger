@@ -14,4 +14,6 @@
 "SL_SendViaMail" = "Per Mail verschicken";
 "SL_Delete" = "Löschen";
 "SL_Send" = "Senden";
+"SL_Star" = "Stern";
+"SL_Unstar" = "UnStern";
 
