@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.source       = { :git => "https://github.com/Oggerschummer/SuperLogger.git", :tag => "0.6.1" }
   s.source_files  = "SuperLogger"
-  s.ios.resource_bundle = { 'SuperLogger' => 'SuperLogger/Resources/*' }
+  s.ios.resource_bundle = { 'SuperLogger' => 'SuperLogger/Resources/**' }
   s.frameworks  = "Foundation", "UIKit", "MessageUI"
   s.requires_arc = true
 
