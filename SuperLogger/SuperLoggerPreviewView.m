@@ -43,7 +43,9 @@
     [super viewDidLoad];
 
     NSBundle* myBundle;
-    myBundle = [NSBundle bundleWithPath:@"Resources/SuperLogger.bundle"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"SuperLogger" ofType:@"bundle"];
+    myBundle = [NSBundle bundleWithPath:path];
+
     
     self.navigationItem.title = _logFilename;
     self.navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectZero];

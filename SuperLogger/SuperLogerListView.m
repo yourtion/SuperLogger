@@ -56,15 +56,17 @@
     [super viewDidLoad];
     
     NSBundle* myBundle;
-    myBundle = [NSBundle bundleWithIdentifier:@"SuperLogger.bundle"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"SuperLogger" ofType:@"bundle"];
+    myBundle = [NSBundle bundleWithPath:path];
+    
     self.fileList = [[SuperLogger sharedInstance]getLogList];
     self.navigationItem.title = NSLocalizedStringFromTableInBundle( @"SL_LogList", @"SLLocalizable", myBundle, @"Log file list");
     self.navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectZero];
     [self.view addSubview:_navigationBar];
     [self.navigationBar pushNavigationItem:self.navigationItem animated:NO];
-    UIBarButtonItem *backBtn=[[UIBarButtonItem alloc] initWithTitle:NSLocalizedStringFromTable( @"SL_Back", @"SLLocalizable", @"Back") style:UIBarButtonItemStylePlain target:self action:@selector(done)];
+    UIBarButtonItem *backBtn=[[UIBarButtonItem alloc] initWithTitle:NSLocalizedStringFromTableInBundle( @"SL_Back", @"SLLocalizable",myBundle, @"Back") style:UIBarButtonItemStylePlain target:self action:@selector(done)];
     [self.navigationItem setLeftBarButtonItem:backBtn];
-    UIBarButtonItem *cleanBtn=[[UIBarButtonItem alloc] initWithTitle:NSLocalizedStringFromTable( @"SL_Clean",@"SLLocalizable",@"Clean") style:UIBarButtonItemStylePlain target:self action:@selector(clean)];
+    UIBarButtonItem *cleanBtn=[[UIBarButtonItem alloc] initWithTitle:NSLocalizedStringFromTableInBundle( @"SL_Clean",@"SLLocalizable", myBundle, @"Clean") style:UIBarButtonItemStylePlain target:self action:@selector(clean)];
     [self.navigationItem setRightBarButtonItem:cleanBtn];
 }
 
@@ -110,14 +112,15 @@
 {
     
     NSBundle* myBundle;
-    myBundle = [NSBundle bundleWithPath:@"Resources/SuperLogger.bundle"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"SuperLogger" ofType:@"bundle"];
+    myBundle = [NSBundle bundleWithPath:path];
 
     UIActionSheet *actionSheet = [[UIActionSheet alloc]
                                   initWithTitle:_tempFilename
                                   delegate:self
                                   cancelButtonTitle:NSLocalizedStringFromTableInBundle( @"SL_Cancel", @"SLLocalizable", myBundle, @"Cancel")
                                   destructiveButtonTitle:nil
-                                  otherButtonTitles:NSLocalizedStringFromTable( @"SL_Preview", @"SLLocalizable",@"Preview"),NSLocalizedStringFromTable( @"SL_SendViaMail", @"SLLocalizable", @"Send via Email"), NSLocalizedStringFromTable( @"SL_Delete", @"SLLocalizable",@"Delete"), nil];
+                                  otherButtonTitles:NSLocalizedStringFromTableInBundle( @"SL_Preview", @"SLLocalizable",myBundle, @"Preview"),NSLocalizedStringFromTableInBundle( @"SL_SendViaMail", @"SLLocalizable", myBundle, @"Send via Email"), NSLocalizedStringFromTableInBundle( @"SL_Delete", @"SLLocalizable",myBundle, @"Delete"), nil];
     [actionSheet showInView:self.view];
     
 }

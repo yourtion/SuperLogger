@@ -5,7 +5,6 @@
   Created by t.may on 03/02/15.
 
 */
-
 "SL_LogList" = "Protokolldateien";
 "SL_Back" = "Zurück";
 "SL_Clean" = "Löschen";
@@ -14,4 +13,5 @@
 "SL_SendViaMail" = "Per Mail verschicken";
 "SL_Delete" = "Löschen";
 "SL_Send" = "Senden";
-
+"SL_Star" = "Stern";
+"SL_Unstar" = "UnStern";

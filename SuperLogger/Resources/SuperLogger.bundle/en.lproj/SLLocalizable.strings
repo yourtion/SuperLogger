@@ -5,7 +5,6 @@
   Created by t.may on 03/02/15.
 
 */
-
 "SL_LogList" = "Log file list";
 "SL_Back" = "Back";
 "SL_Clean" = "Clean";
@@ -14,4 +13,5 @@
 "SL_SendViaMail" = "Send via Email";
 "SL_Delete" = "Delete";
 "SL_Send" = "Send";
-
+"SL_Star" = "Star";
+"SL_Unstar" = "UnStar";
