@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C81f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -22,11 +22,11 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="84" id="ZvW-o0-1UB"/>
                                 </constraints>
-                                <state key="normal" title="TestCash">
+                                <state key="normal" title="TestCrash">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="addCash:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="pev-bF-Vap"/>
+                                    <action selector="addCrash:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Iem-7Y-Ykr"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gCW-6O-TqV">
@@ -50,11 +50,32 @@
                                     <action selector="addLog:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="SOY-pA-NT2"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WE1-GF-LeD">
+                                <rect key="frame" x="108" y="307" width="104" height="30"/>
+                                <state key="normal" title="Leave 2 logs">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="l2logs:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="buw-o6-DLo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kad-fk-Rqp">
+                                <rect key="frame" x="112" y="345" width="96" height="30"/>
+                                <state key="normal" title="DeleteCrash">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="delCrash:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="YqC-Ic-pXW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Q3V-u9-kGB" firstAttribute="centerX" secondItem="h4A-63-n2X" secondAttribute="centerX" id="5QH-Cf-nbs"/>
+                            <constraint firstItem="WE1-GF-LeD" firstAttribute="top" secondItem="h4A-63-n2X" secondAttribute="bottom" constant="8" symbolic="YES" id="6DP-ml-an3"/>
+                            <constraint firstItem="WE1-GF-LeD" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="92" id="6hy-7W-Zyl"/>
                             <constraint firstItem="gCW-6O-TqV" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="90" id="Q49-cx-J5W"/>
+                            <constraint firstItem="WE1-GF-LeD" firstAttribute="centerX" secondItem="h4A-63-n2X" secondAttribute="centerX" id="UTZ-Vj-GQp"/>
                             <constraint firstItem="h4A-63-n2X" firstAttribute="top" secondItem="Q3V-u9-kGB" secondAttribute="bottom" constant="8" symbolic="YES" id="VTd-fP-4f5"/>
                             <constraint firstItem="h4A-63-n2X" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="bjE-iM-BoX"/>
                             <constraint firstItem="h4A-63-n2X" firstAttribute="centerX" secondItem="gCW-6O-TqV" secondAttribute="centerX" id="nIT-HZ-Va3"/>

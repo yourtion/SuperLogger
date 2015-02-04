@@ -59,6 +59,9 @@
  *  Clean all logs
  */
 - (void)cleanLogs;
+
+-(BOOL)cleanLogsBefore:(NSDate *)before keeping:(int)keepMaxLogs deletingCrashes:(BOOL)deleteCrashes;
+
 /**
  *  Get logfile's NSData with filename
  *

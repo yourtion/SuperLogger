@@ -20,6 +20,16 @@
 +(NSString *)getDateTimeStringWithFormat:(NSString *)format;
 
 /**
+ *  getDateTimeFromString
+ *
+ *  @param string like "2015-01-12 12:16:11"
+ *  @param format like "yyyy-MM-dd HH:mm:ss"
+ *
+ *  @return NSDate from string
+ */
++(NSDate *)getDateTimeFromString:(NSString *)string withFormat:(NSString *)format;
+
+/**
  *  getFilenamelistOfType
  *
  *  @param type    fileTile like @"log"

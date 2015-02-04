@@ -29,8 +29,15 @@
     NSLog(@"This is a log.");
 }
 
-- (IBAction)addCash:(id)sender {
+- (IBAction)addCrash:(id)sender {
     [self delete:nil];
+}
+
+- (IBAction)l2logs:(id)sender {
+    [[SuperLogger sharedInstance]cleanLogsBefore:nil keeping:2 deletingCrashes:NO];
+}
+- (IBAction)delCrash:(id)sender {
+     [[SuperLogger sharedInstance]cleanLogsBefore:nil keeping:0 deletingCrashes:YES];
 }
 
 - (IBAction)showLogList:(id)sender {
