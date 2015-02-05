@@ -66,8 +66,10 @@
     [self.navigationBar pushNavigationItem:self.navigationItem animated:NO];
     UIBarButtonItem *backBtn=[[UIBarButtonItem alloc] initWithTitle:NSLocalizedStringFromTableInBundle( @"SL_Back", @"SLLocalizable",myBundle, @"Back") style:UIBarButtonItemStylePlain target:self action:@selector(done)];
     [self.navigationItem setLeftBarButtonItem:backBtn];
-    UIBarButtonItem *cleanBtn=[[UIBarButtonItem alloc] initWithTitle:NSLocalizedStringFromTableInBundle( @"SL_Clean",@"SLLocalizable", myBundle, @"Clean") style:UIBarButtonItemStylePlain target:self action:@selector(clean)];
-    [self.navigationItem setRightBarButtonItem:cleanBtn];
+    if ([SuperLogger sharedInstance].enableDelete){
+        UIBarButtonItem *cleanBtn=[[UIBarButtonItem alloc] initWithTitle:NSLocalizedStringFromTableInBundle( @"SL_Clean",@"SLLocalizable", myBundle, @"Clean") style:UIBarButtonItemStylePlain target:self action:@selector(clean)];
+        [self.navigationItem setRightBarButtonItem:cleanBtn];
+    }
 }
 
 -(void)done
@@ -214,7 +216,7 @@
 
 //- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 //{
-//    
+//
 //    if (buttonIndex ==  0) {
 //        [[SuperLogger sharedInstance]starWithFilename:_tempFilename];
 //        self.fileList = nil;
