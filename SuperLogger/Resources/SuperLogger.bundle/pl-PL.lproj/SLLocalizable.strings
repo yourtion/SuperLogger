@@ -5,7 +5,6 @@
   Created by t.may on 03/02/15.
 
 */
-
 "SL_LogList" = "Pliki z logami";
 "SL_Back" = "Wstecz";
 "SL_Clean" = "Usunąć";
@@ -14,6 +13,5 @@
 "SL_SendViaMail" = "Wyślij przez e-mail";
 "SL_Delete" = "Usunąć";
 "SL_Send" = "Wysłać";
-"SL_Star" = "Gwiazda";
-"SL_Unstar" = "UnGwiazda";
-
+"SL_Star" = "Star";
+"SL_Unstar" = "UnStar";
