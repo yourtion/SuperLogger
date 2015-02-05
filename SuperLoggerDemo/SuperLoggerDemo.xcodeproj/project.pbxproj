@@ -34,7 +34,6 @@
 		CBF026121A49AB8100F28BC0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CBF026151A49AB8100F28BC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		CBF026201A49AB8100F28BC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CBF026211A49AB8100F28BC0 /* SuperLoggerDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SuperLoggerDemoTests.m; sourceTree = "<group>"; };
 		CBF0262C1A49ABC000F28BC0 /* SuperLogerListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperLogerListView.h; sourceTree = "<group>"; };
 		CBF0262D1A49ABC000F28BC0 /* SuperLogerListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperLogerListView.m; sourceTree = "<group>"; };
 		CBF0262E1A49ABC000F28BC0 /* SuperLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperLogger.h; sourceTree = "<group>"; };
@@ -100,7 +99,6 @@
 		CBF0261E1A49AB8100F28BC0 /* SuperLoggerDemoTests */ = {
 			isa = PBXGroup;
 			children = (
-				CBF026211A49AB8100F28BC0 /* SuperLoggerDemoTests.m */,
 				CBF0261F1A49AB8100F28BC0 /* Supporting Files */,
 			);
 			path = SuperLoggerDemoTests;
