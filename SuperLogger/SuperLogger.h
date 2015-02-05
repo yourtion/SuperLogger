@@ -12,6 +12,10 @@
 @property(strong, nonatomic) NSString *mailTitle;
 @property(strong, nonatomic) NSString *mailContect;
 @property(strong, nonatomic) NSArray *mailRecipients;
+@property(assign,nonatomic) BOOL enableStar;
+@property(assign,nonatomic) BOOL enablePreview;
+@property(assign,nonatomic) BOOL enableMail;
+@property(assign,nonatomic) BOOL enableDelete;
 
 /**
  *  SuperLogger sharedInstance
