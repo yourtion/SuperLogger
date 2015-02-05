@@ -183,11 +183,8 @@ void UncaughtExceptionHandler(NSException* exception)
     [self deleteLogWithFilename:@"CrashLog.log"];
 }
 
--(BOOL)cleanLogsBefore:(NSDate *)before keeping:(int)keepMaxLogs withStarts:(BOOL)starts
+-(BOOL)cleanLogsByKeeping:(int)keepMaxLogs deleteStarts:(BOOL)starts
 {
-    if (!before && keepMaxLogs == 0) {
-        [self cleanLogs];
-    }
     NSMutableArray *logs = [[NSMutableArray alloc]initWithArray:[self getLogList]];
     [logs removeObject:@"CrashLog.log"];
     if (!starts) {
@@ -201,11 +198,20 @@ void UncaughtExceptionHandler(NSException* exception)
             [self deleteLogWithFilename:file];
         }
     }else{
-        if (!before) {
-            return NO;
+        return NO;
+    }
+    return YES;
+}
+
+-(BOOL)cleanLogsBefore:(NSDate *)before deleteStarts:(BOOL)starts
+{
+    NSMutableArray *logs = [[NSMutableArray alloc]initWithArray:[self getLogList]];
+    [logs removeObject:@"CrashLog.log"];
+    if (!starts) {
+        for (NSString *file in _starList) {
+            [logs removeObject:file];
         }
     }
-
     if (before) {
         for (NSString *file in logs) {
             NSDate *fileDate = [SuperLoggerFunctions getDateTimeFromString:[file substringToIndex:[file length]-4] withFormat:_logFileFormat];
@@ -213,6 +219,8 @@ void UncaughtExceptionHandler(NSException* exception)
                 [self deleteLogWithFilename:file];
             }
         }
+    }else{
+        return NO;
     }
     return YES;
 }

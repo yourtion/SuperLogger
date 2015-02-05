@@ -65,7 +65,25 @@
  */
 -(void)deleteCrash;
 
--(BOOL)cleanLogsBefore:(NSDate *)before keeping:(int)keepMaxLogs withStarts:(BOOL)starts;
+/**
+ *  Clean and keep numbers of logs
+ *
+ *  @param keepMaxLogs Number of logs you want to keep
+ *  @param starts      Clean starts logs ?
+ *
+ *  @return Succeed to clean
+ */
+-(BOOL)cleanLogsByKeeping:(int)keepMaxLogs deleteStarts:(BOOL)starts;
+
+/**
+ *  Clean logs befor date
+ *
+ *  @param before The date you want to clean logs befor
+ *  @param starts Clean starts logs ?
+ *
+ *  @return Succeed to clean
+ */
+-(BOOL)cleanLogsBefore:(NSDate *)before deleteStarts:(BOOL)starts;
 
 /**
  *  Get logfile's NSData with filename
