@@ -6,12 +6,12 @@
 
 */
 "SL_LogList" = "Protokolldateien";
-"SL_Back" = "Zur√ºck";
-"SL_Clean" = "L√∂schen";
+"SL_Back" = "Zurück";
+"SL_Clean" = "Löschen";
 "SL_Cancel" = "Abbrechen";
 "SL_Preview" = "Vorschau";
 "SL_SendViaMail" = "Per Mail verschicken";
-"SL_Delete" = "L√∂schen";
+"SL_Delete" = "Löschen";
 "SL_Send" = "Senden";
-"SL_Star" = "Stern";
-"SL_Unstar" = "UnStern";
+"SL_Star" = "Auswählen";
+"SL_Unstar" = "Abwählen";
