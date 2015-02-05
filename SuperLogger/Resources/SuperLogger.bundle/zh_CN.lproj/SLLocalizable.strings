@@ -1,0 +1,15 @@
+/*
+ Localizable.strings
+ Pods
+ Created by t.may on 03/02/15.
+ */
+"SL_LogList" = "日志列表";
+"SL_Back" = "返回";
+"SL_Clean" = "清空";
+"SL_Cancel" = "取消";
+"SL_Preview" = "预览";
+"SL_SendViaMail" = "通过邮件发送";
+"SL_Delete" = "删除";
+"SL_Send" = "发送";
+"SL_Star" = "星标";
+"SL_Unstar" = "取消星标";
