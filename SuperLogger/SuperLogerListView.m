@@ -214,54 +214,6 @@
 
 }
 
-//- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-//{
-//
-//    if (buttonIndex ==  0) {
-//        [[SuperLogger sharedInstance]starWithFilename:_tempFilename];
-//        self.fileList = nil;
-//        self.fileList = [[SuperLogger sharedInstance]getLogList];
-//        [self.tableView reloadData];
-//    }
-//    else if (buttonIndex ==  1) {
-//        SuperLoggerPreviewView *pre = [[SuperLoggerPreviewView alloc]init];
-//        pre.logData = [[SuperLogger sharedInstance] getDataWithFilename:_tempFilename];
-//        pre.logFilename = _tempFilename;
-//        dispatch_async(dispatch_get_main_queue(), ^(void){
-//            [self presentViewController:pre animated:YES completion:nil];
-//        });
-//    }
-//    else if (buttonIndex == 2) {
-//        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-//            SuperLogger *logger = [SuperLogger sharedInstance];
-//            NSData *tempData = [logger getDataWithFilename:_tempFilename];
-//            if (tempData != nil) {
-//                MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
-//                [picker setSubject:logger.mailTitle];
-//                [picker setToRecipients:logger.mailRecipients];
-//                [picker addAttachmentData:tempData mimeType:@"application/text" fileName:_tempFilename];
-//                [picker setToRecipients:[NSArray array]];
-//                [picker setMessageBody:logger.mailContect isHTML:NO];
-//                [picker setMailComposeDelegate:self];
-//                dispatch_async(dispatch_get_main_queue(), ^(void){
-//                    @try {
-//                        [self presentViewController:picker animated:YES completion:nil];
-//                    }
-//                    @catch (NSException * e)
-//                    { NSLog(@"Exception: %@", e); }
-//                });
-//            }
-//        }];
-//    }
-//    else if (buttonIndex == 3) {
-//        [[SuperLogger sharedInstance]deleteLogWithFilename:_tempFilename];
-//        self.fileList = nil;
-//        self.fileList = [[SuperLogger sharedInstance]getLogList];
-//        [self.tableView reloadData];
-//    }
-//    
-//}
-
 - (void)mailComposeController:(MFMailComposeViewController *)controller
           didFinishWithResult:(MFMailComposeResult)result
                         error:(NSError *)error
