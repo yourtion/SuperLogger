@@ -42,18 +42,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    NSBundle* myBundle;
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"SuperLogger" ofType:@"bundle"];
-    myBundle = [NSBundle bundleWithPath:path];
-
-    
     self.navigationItem.title = _logFilename;
     self.navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectZero];
     [self.view addSubview:_navigationBar];
     [self.navigationBar pushNavigationItem:self.navigationItem animated:NO];
-    UIBarButtonItem *backBtn=[[UIBarButtonItem alloc] initWithTitle: NSLocalizedStringFromTableInBundle(@"SL_Back", @"SLLocalizable", myBundle,@"Back") style:UIBarButtonItemStylePlain target:self action:@selector(done)];
+    UIBarButtonItem *backBtn=[[UIBarButtonItem alloc] initWithTitle: SLLocalizedString(@"SL_Back",@"Back") style:UIBarButtonItemStylePlain target:self action:@selector(done)];
     [self.navigationItem setLeftBarButtonItem:backBtn];
-    UIBarButtonItem *sendBtn=[[UIBarButtonItem alloc] initWithTitle:NSLocalizedStringFromTable(@"SL_Send", @"SLLocalizable",@"Send") style:UIBarButtonItemStylePlain target:self action:@selector(send)];
+    UIBarButtonItem *sendBtn=[[UIBarButtonItem alloc] initWithTitle:SLLocalizedString(@"SL_Send",@"Send") style:UIBarButtonItemStylePlain target:self action:@selector(send)];
     [self.navigationItem setRightBarButtonItem:sendBtn];
     
     NSString* newStr = [[NSString alloc] initWithData:self.logData encoding:NSUTF8StringEncoding];

@@ -54,20 +54,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    NSBundle* myBundle;
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"SuperLogger" ofType:@"bundle"];
-    myBundle = [NSBundle bundleWithPath:path];
-    
+     
     self.fileList = [[SuperLogger sharedInstance]getLogList];
-    self.navigationItem.title = NSLocalizedStringFromTableInBundle( @"SL_LogList", @"SLLocalizable", myBundle, @"Log file list");
+    self.navigationItem.title = SLLocalizedString( @"SL_LogList",  @"Log file list");
     self.navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectZero];
     [self.view addSubview:_navigationBar];
     [self.navigationBar pushNavigationItem:self.navigationItem animated:NO];
-    UIBarButtonItem *backBtn=[[UIBarButtonItem alloc] initWithTitle:NSLocalizedStringFromTableInBundle( @"SL_Back", @"SLLocalizable",myBundle, @"Back") style:UIBarButtonItemStylePlain target:self action:@selector(done)];
+    UIBarButtonItem *backBtn=[[UIBarButtonItem alloc] initWithTitle:SLLocalizedString( @"SL_Back", @"Back") style:UIBarButtonItemStylePlain target:self action:@selector(done)];
     [self.navigationItem setLeftBarButtonItem:backBtn];
-    UIBarButtonItem *cleanBtn=[[UIBarButtonItem alloc] initWithTitle:NSLocalizedStringFromTableInBundle( @"SL_Clean",@"SLLocalizable", myBundle, @"Clean") style:UIBarButtonItemStylePlain target:self action:@selector(clean)];
-    [self.navigationItem setRightBarButtonItem:cleanBtn];
+    if ([SuperLogger sharedInstance].enableDelete){
+        UIBarButtonItem *cleanBtn=[[UIBarButtonItem alloc] initWithTitle:SLLocalizedString( @"SL_Clean", @"Clean") style:UIBarButtonItemStylePlain target:self action:@selector(clean)];
+        [self.navigationItem setRightBarButtonItem:cleanBtn];
+    }
 }
 
 -(void)done
@@ -99,7 +97,9 @@
     UITableViewCell *cell = [[UITableViewCell alloc]init];
     cell.textLabel.text = self.fileList[indexPath.row];
     if ([[SuperLogger sharedInstance] isStaredWithFilename:self.fileList[indexPath.row]]) {
-        cell.accessoryType = UITableViewCellAccessoryDetailButton;
+        if ([SuperLogger sharedInstance].enableStar){
+            cell.accessoryType = UITableViewCellAccessoryDetailButton;
+        }
     }
     return cell;
 }
@@ -111,41 +111,55 @@
     [self exportTapped:self];
 }
 
+/**
+ *  Shows Alert controller after user tapped on a log file
+ *
+ *  @param sender object that triggered the alert controller
+ */
 - (void)exportTapped:(id)sender
 {
     
+    //Oggerschummer 20150205
+    //Replace original UIActionSheet implementation mwith modern implementation using UIAlertController
+    //Thus delegate method below has been commented
+    
+    @try {
+        
+        
     NSBundle* myBundle;
     NSString *path = [[NSBundle mainBundle] pathForResource:@"SuperLogger" ofType:@"bundle"];
     myBundle = [NSBundle bundleWithPath:path];
     
-    NSString *isStar = [[SuperLogger sharedInstance] isStaredWithFilename:_tempFilename] ? NSLocalizedStringFromTableInBundle( @"SL_Unstar", @"SLLocalizable", myBundle,@"Unstar"): NSLocalizedStringFromTableInBundle( @"SL_Star", @"SLLocalizable", myBundle, @"Star");
+    UIAlertController * alertController = [[UIAlertController alloc] init];
+   
+    if ([SuperLogger sharedInstance].enableStar){
+        NSString *isStar = [[SuperLogger sharedInstance] isStaredWithFilename:_tempFilename] ? SLLocalizedString(@"SL_Unstar",@"Unstar"): SLLocalizedString( @"SL_Star",  @"Star");
     
-    UIActionSheet *actionSheet = [[UIActionSheet alloc]
-                                  initWithTitle:_tempFilename
-                                  delegate:self
-                                  cancelButtonTitle:NSLocalizedStringFromTableInBundle( @"SL_Cancel", @"SLLocalizable", myBundle, @"Cancel")
-                                  destructiveButtonTitle:nil
-                                  otherButtonTitles:isStar ,NSLocalizedStringFromTableInBundle( @"SL_Preview", @"SLLocalizable",myBundle, @"Preview"),NSLocalizedStringFromTableInBundle( @"SL_SendViaMail", @"SLLocalizable", myBundle, @"Send via Email"), NSLocalizedStringFromTableInBundle( @"SL_Delete", @"SLLocalizable",myBundle, @"Delete"), nil];
-    [actionSheet showInView:self.view];
-}
+        UIAlertAction * starAction = [UIAlertAction actionWithTitle:isStar style:UIAlertActionStyleDefault handler:^(UIAlertAction * action){
+                [[SuperLogger sharedInstance]starWithFilename:_tempFilename];
+                self.fileList = nil;
+                self.fileList = [[SuperLogger sharedInstance]getLogList];
+                [self.tableView reloadData];
+        }];
+        [alertController addAction:starAction];
+    }
+    
+    if ([SuperLogger sharedInstance].enablePreview){
+        UIAlertAction * previewAction = [UIAlertAction actionWithTitle:SLLocalizedString( @"SL_Preview", @"Preview")  style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+            
+            SuperLoggerPreviewView *pre = [[SuperLoggerPreviewView alloc]init];
+            pre.logData = [[SuperLogger sharedInstance] getDataWithFilename:_tempFilename];
+            pre.logFilename = _tempFilename;
+            dispatch_async(dispatch_get_main_queue(), ^(void){
+                [self presentViewController:pre animated:YES completion:nil];
+            });
 
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (buttonIndex ==  0) {
-        [[SuperLogger sharedInstance]starWithFilename:_tempFilename];
-        self.fileList = nil;
-        self.fileList = [[SuperLogger sharedInstance]getLogList];
-        [self.tableView reloadData];
+        }];
+    
+     [alertController addAction:previewAction];
     }
-    else if (buttonIndex ==  1) {
-        SuperLoggerPreviewView *pre = [[SuperLoggerPreviewView alloc]init];
-        pre.logData = [[SuperLogger sharedInstance] getDataWithFilename:_tempFilename];
-        pre.logFilename = _tempFilename;
-        dispatch_async(dispatch_get_main_queue(), ^(void){
-            [self presentViewController:pre animated:YES completion:nil];
-        });
-    }
-    else if (buttonIndex == 2) {
+    if ([SuperLogger sharedInstance].enableMail){
+    UIAlertAction * mailAction = [UIAlertAction actionWithTitle:SLLocalizedString( @"SL_SendViaMail", @"Send via Email")  style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             SuperLogger *logger = [SuperLogger sharedInstance];
             NSData *tempData = [logger getDataWithFilename:_tempFilename];
@@ -166,14 +180,34 @@
                 });
             }
         }];
+
+    }];
+        [alertController addAction:mailAction];
     }
-    else if (buttonIndex == 3) {
-        [[SuperLogger sharedInstance]deleteLogWithFilename:_tempFilename];
-        self.fileList = nil;
-        self.fileList = [[SuperLogger sharedInstance]getLogList];
-        [self.tableView reloadData];
+   
+    if ([SuperLogger sharedInstance].enableDelete){
+       UIAlertAction * deleteAction = [UIAlertAction actionWithTitle:SLLocalizedString( @"SL_Delete", @"Delete")  style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action){
+           [[SuperLogger sharedInstance]deleteLogWithFilename:_tempFilename];
+           self.fileList = nil;
+           self.fileList = [[SuperLogger sharedInstance]getLogList];
+           [self.tableView reloadData];
+       }];
+       [alertController addAction:deleteAction];
+
+    }
+    UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:SLLocalizedString( @"SL_Cancel", @"Cancel") style:UIAlertActionStyleDefault handler:Nil];
+     [alertController addAction:cancelAction];
+    
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        [self presentViewController:alertController animated:YES completion:Nil];
+    }];
+    
+    }
+    @catch (NSException *exception) {
+            //non critial error, lets ignore this for the time being
     }
     
+
 }
 
 - (void)mailComposeController:(MFMailComposeViewController *)controller

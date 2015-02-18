@@ -34,6 +34,10 @@
     static dispatch_once_t oncePredicate;
     dispatch_once(&oncePredicate, ^{
         _sharedInstance = [[SuperLogger alloc] init];
+        _sharedInstance.enableStar =YES; //Default: Allow Star
+        _sharedInstance.enableDelete =YES;
+        _sharedInstance.enableMail=YES;
+        _sharedInstance.enablePreview=YES;
     });
     return _sharedInstance;
 }
