@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+
+#define SLLocalizedString(key, comment) [[NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"SuperLogger" ofType:@"bundle"]] localizedStringForKey:(key) value:@"" table:@"SLLocalizable"]
+
+
 @interface SuperLogger : NSObject
 @property(strong, nonatomic) NSString *mailTitle;
 @property(strong, nonatomic) NSString *mailContect;
