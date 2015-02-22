@@ -54,20 +54,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    NSBundle* myBundle;
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"SuperLogger" ofType:@"bundle"];
-    myBundle = [NSBundle bundleWithPath:path];
-    
+     
     self.fileList = [[SuperLogger sharedInstance]getLogList];
-    self.navigationItem.title = NSLocalizedStringFromTableInBundle( @"SL_LogList", @"SLLocalizable", myBundle, @"Log file list");
+    self.navigationItem.title = SLLocalizedString( @"SL_LogList",  @"Log file list");
     self.navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectZero];
     [self.view addSubview:_navigationBar];
     [self.navigationBar pushNavigationItem:self.navigationItem animated:NO];
-    UIBarButtonItem *backBtn=[[UIBarButtonItem alloc] initWithTitle:NSLocalizedStringFromTableInBundle( @"SL_Back", @"SLLocalizable",myBundle, @"Back") style:UIBarButtonItemStylePlain target:self action:@selector(done)];
+    UIBarButtonItem *backBtn=[[UIBarButtonItem alloc] initWithTitle:SLLocalizedString( @"SL_Back", @"Back") style:UIBarButtonItemStylePlain target:self action:@selector(done)];
     [self.navigationItem setLeftBarButtonItem:backBtn];
     if ([SuperLogger sharedInstance].enableDelete){
-        UIBarButtonItem *cleanBtn=[[UIBarButtonItem alloc] initWithTitle:NSLocalizedStringFromTableInBundle( @"SL_Clean",@"SLLocalizable", myBundle, @"Clean") style:UIBarButtonItemStylePlain target:self action:@selector(clean)];
+        UIBarButtonItem *cleanBtn=[[UIBarButtonItem alloc] initWithTitle:SLLocalizedString( @"SL_Clean", @"Clean") style:UIBarButtonItemStylePlain target:self action:@selector(clean)];
         [self.navigationItem setRightBarButtonItem:cleanBtn];
     }
 }
@@ -137,7 +133,7 @@
     UIAlertController * alertController = [[UIAlertController alloc] init];
    
     if ([SuperLogger sharedInstance].enableStar){
-        NSString *isStar =isStar= [[SuperLogger sharedInstance] isStaredWithFilename:_tempFilename] ? NSLocalizedStringFromTableInBundle( @"SL_Unstar", @"SLLocalizable", myBundle,@"Unstar"): NSLocalizedStringFromTableInBundle( @"SL_Star", @"SLLocalizable", myBundle, @"Star");
+        NSString *isStar = [[SuperLogger sharedInstance] isStaredWithFilename:_tempFilename] ? SLLocalizedString(@"SL_Unstar",@"Unstar"): SLLocalizedString( @"SL_Star",  @"Star");
     
         UIAlertAction * starAction = [UIAlertAction actionWithTitle:isStar style:UIAlertActionStyleDefault handler:^(UIAlertAction * action){
                 [[SuperLogger sharedInstance]starWithFilename:_tempFilename];
@@ -149,7 +145,7 @@
     }
     
     if ([SuperLogger sharedInstance].enablePreview){
-        UIAlertAction * previewAction = [UIAlertAction actionWithTitle:NSLocalizedStringFromTableInBundle( @"SL_Preview", @"SLLocalizable",myBundle, @"Preview")  style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+        UIAlertAction * previewAction = [UIAlertAction actionWithTitle:SLLocalizedString( @"SL_Preview", @"Preview")  style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
             
             SuperLoggerPreviewView *pre = [[SuperLoggerPreviewView alloc]init];
             pre.logData = [[SuperLogger sharedInstance] getDataWithFilename:_tempFilename];
@@ -163,7 +159,7 @@
      [alertController addAction:previewAction];
     }
     if ([SuperLogger sharedInstance].enableMail){
-    UIAlertAction * mailAction = [UIAlertAction actionWithTitle:NSLocalizedStringFromTableInBundle( @"SL_SendViaMail", @"SLLocalizable", myBundle, @"Send via Email")  style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+    UIAlertAction * mailAction = [UIAlertAction actionWithTitle:SLLocalizedString( @"SL_SendViaMail", @"Send via Email")  style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             SuperLogger *logger = [SuperLogger sharedInstance];
             NSData *tempData = [logger getDataWithFilename:_tempFilename];
@@ -190,7 +186,7 @@
     }
    
     if ([SuperLogger sharedInstance].enableDelete){
-       UIAlertAction * deleteAction = [UIAlertAction actionWithTitle:NSLocalizedStringFromTableInBundle( @"SL_Delete", @"SLLocalizable",myBundle, @"Delete")  style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action){
+       UIAlertAction * deleteAction = [UIAlertAction actionWithTitle:SLLocalizedString( @"SL_Delete", @"Delete")  style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action){
            [[SuperLogger sharedInstance]deleteLogWithFilename:_tempFilename];
            self.fileList = nil;
            self.fileList = [[SuperLogger sharedInstance]getLogList];
@@ -199,7 +195,7 @@
        [alertController addAction:deleteAction];
 
     }
-    UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedStringFromTableInBundle( @"SL_Cancel", @"SLLocalizable", myBundle, @"Cancel") style:UIAlertActionStyleDefault handler:Nil];
+    UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:SLLocalizedString( @"SL_Cancel", @"Cancel") style:UIAlertActionStyleDefault handler:Nil];
      [alertController addAction:cancelAction];
     
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
