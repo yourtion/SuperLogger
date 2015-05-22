@@ -1,5 +1,8 @@
 SuperLogger
 ===========
+[![Version](https://img.shields.io/cocoapods/v/SuperLogger.svg?style=flat)](http://cocoapods.org/pods/SuperID)
+[![License](https://img.shields.io/cocoapods/l/SuperLogger.svg?style=flat)](http://cocoapods.org/pods/SuperID)
+[![Platform](https://img.shields.io/cocoapods/p/SuperLogger.svg?style=flat)](http://cocoapods.org/pods/SuperID)
 
 Save NSLog() to file and send email to developer
 
