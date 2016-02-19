@@ -57,7 +57,7 @@
         }
         //将NSlog打印信息保存到Document目录下的Log文件夹下
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        self.logDirectory = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"Log"];
+        self.logDirectory = [paths[0] stringByAppendingPathComponent:@"Log"];
         self.logFileFormat = @"yyyy-MM-dd_HH:mm:ss";
     }
     return self;
@@ -105,7 +105,7 @@ void UncaughtExceptionHandler(NSException* exception)
     }
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *logDirectory = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"Log"];
+    NSString *logDirectory = [paths[0] stringByAppendingPathComponent:@"Log"];
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
     if (![fileManager fileExistsAtPath:logDirectory]) {

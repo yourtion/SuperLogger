@@ -74,7 +74,7 @@
             [picker setSubject:logger.mailTitle];
             [picker setToRecipients:logger.mailRecipients];
             [picker addAttachmentData:self.logData mimeType:@"application/text" fileName:_logFilename];
-            [picker setToRecipients:[NSArray array]];
+            [picker setToRecipients:@[]];
             [picker setMessageBody:logger.mailContect isHTML:NO];
             [picker setMailComposeDelegate:self];
             @try {
