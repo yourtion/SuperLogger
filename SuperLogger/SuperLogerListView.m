@@ -129,66 +129,20 @@
         UIAlertController * alertController = [[UIAlertController alloc] init];
         
         if ([SuperLogger sharedInstance].enableStar){
-            NSString *isStar = [[SuperLogger sharedInstance] isStaredWithFilename:_tempFilename] ? SLLocalizedString(@"SL_Unstar",@"Unstar"): SLLocalizedString( @"SL_Star",  @"Star");
-            
-            UIAlertAction * starAction = [UIAlertAction actionWithTitle:isStar style:UIAlertActionStyleDefault handler:^(UIAlertAction * action){
-                [[SuperLogger sharedInstance]starWithFilename:_tempFilename];
-                self.fileList = nil;
-                self.fileList = [[SuperLogger sharedInstance]getLogList];
-                [self.tableView reloadData];
-            }];
-            [alertController addAction:starAction];
+            [alertController addAction:[self getAlertActionEnableStar]];
         }
         
         if ([SuperLogger sharedInstance].enablePreview){
-            UIAlertAction * previewAction = [UIAlertAction actionWithTitle:SLLocalizedString( @"SL_Preview", @"Preview")  style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
-                
-                SuperLoggerPreviewView *pre = [[SuperLoggerPreviewView alloc]init];
-                pre.logData = [[SuperLogger sharedInstance] getDataWithFilename:_tempFilename];
-                pre.logFilename = _tempFilename;
-                dispatch_async(dispatch_get_main_queue(), ^(void){
-                    [self presentViewController:pre animated:YES completion:nil];
-                });
-                
-            }];
             
-            [alertController addAction:previewAction];
+            [alertController addAction:[self getAlertActionEnablePreview]];
         }
         if ([SuperLogger sharedInstance].enableMail){
-            UIAlertAction * mailAction = [UIAlertAction actionWithTitle:SLLocalizedString( @"SL_SendViaMail", @"Send via Email")  style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
-                [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                    SuperLogger *logger = [SuperLogger sharedInstance];
-                    NSData *tempData = [logger getDataWithFilename:_tempFilename];
-                    if (tempData != nil) {
-                        MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
-                        [picker setSubject:logger.mailTitle];
-                        [picker setToRecipients:logger.mailRecipients];
-                        [picker addAttachmentData:tempData mimeType:@"application/text" fileName:_tempFilename];
-                        [picker setToRecipients:@[]];
-                        [picker setMessageBody:logger.mailContect isHTML:NO];
-                        [picker setMailComposeDelegate:self];
-                        dispatch_async(dispatch_get_main_queue(), ^(void){
-                            @try {
-                                [self presentViewController:picker animated:YES completion:nil];
-                            }
-                            @catch (NSException * e)
-                            { NSLog(@"Exception: %@", e); }
-                        });
-                    }
-                }];
-                
-            }];
-            [alertController addAction:mailAction];
+           
+            [alertController addAction:[self getAlertActionEnableMail]];
         }
         
         if ([SuperLogger sharedInstance].enableDelete) {
-            UIAlertAction * deleteAction = [UIAlertAction actionWithTitle:SLLocalizedString( @"SL_Delete", @"Delete")  style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action){
-                [[SuperLogger sharedInstance]deleteLogWithFilename:_tempFilename];
-                self.fileList = nil;
-                self.fileList = [[SuperLogger sharedInstance]getLogList];
-                [self.tableView reloadData];
-            }];
-            [alertController addAction:deleteAction];
+            [alertController addAction:[self getAlertActionEnableDelete]];
         }
         
         UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:SLLocalizedString( @"SL_Cancel", @"Cancel") style:UIAlertActionStyleDefault handler:Nil];
@@ -201,6 +155,70 @@
     }
     @catch (NSException * e)
     { NSLog(@"Exception: %@", e); }
+}
+
+- (UIAlertAction *)getAlertActionEnableStar {
+    NSString *isStar = [[SuperLogger sharedInstance] isStaredWithFilename:_tempFilename] ? SLLocalizedString(@"SL_Unstar",@"Unstar"): SLLocalizedString( @"SL_Star",  @"Star");
+    
+    UIAlertAction * starAction = [UIAlertAction actionWithTitle:isStar style:UIAlertActionStyleDefault handler:^(UIAlertAction * action){
+        [[SuperLogger sharedInstance]starWithFilename:_tempFilename];
+        self.fileList = nil;
+        self.fileList = [[SuperLogger sharedInstance]getLogList];
+        [self.tableView reloadData];
+    }];
+    
+    return starAction;
+}
+
+- (UIAlertAction *)getAlertActionEnablePreview {
+    UIAlertAction * previewAction = [UIAlertAction actionWithTitle:SLLocalizedString( @"SL_Preview", @"Preview")  style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+        SuperLoggerPreviewView *pre = [[SuperLoggerPreviewView alloc]init];
+        pre.logData = [[SuperLogger sharedInstance] getDataWithFilename:_tempFilename];
+        pre.logFilename = _tempFilename;
+        dispatch_async(dispatch_get_main_queue(), ^(void){
+            [self presentViewController:pre animated:YES completion:nil];
+        });
+        
+    }];
+    return previewAction;
+}
+
+- (UIAlertAction *)getAlertActionEnableMail {
+    UIAlertAction * mailAction = [UIAlertAction actionWithTitle:SLLocalizedString( @"SL_SendViaMail", @"Send via Email")  style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            SuperLogger *logger = [SuperLogger sharedInstance];
+            NSData *tempData = [logger getDataWithFilename:_tempFilename];
+            if (tempData != nil) {
+                MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
+                [picker setSubject:logger.mailTitle];
+                [picker setToRecipients:logger.mailRecipients];
+                [picker addAttachmentData:tempData mimeType:@"application/text" fileName:_tempFilename];
+                [picker setToRecipients:@[]];
+                [picker setMessageBody:logger.mailContect isHTML:NO];
+                [picker setMailComposeDelegate:self];
+                dispatch_async(dispatch_get_main_queue(), ^(void){
+                    @try {
+                        [self presentViewController:picker animated:YES completion:nil];
+                    }
+                    @catch (NSException * e)
+                    { NSLog(@"Exception: %@", e); }
+                });
+            }
+        }];
+        
+    }];
+    return mailAction;
+}
+
+- (UIAlertAction *)getAlertActionEnableDelete {
+    UIAlertAction * deleteAction = [UIAlertAction actionWithTitle:SLLocalizedString( @"SL_Delete", @"Delete")  style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action){
+        [[SuperLogger sharedInstance]deleteLogWithFilename:_tempFilename];
+        self.fileList = nil;
+        self.fileList = [[SuperLogger sharedInstance]getLogList];
+        [self.tableView reloadData];
+    }];
+    return deleteAction;
 }
 
 - (void)mailComposeController:(MFMailComposeViewController *)controller
