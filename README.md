@@ -3,6 +3,7 @@ SuperLogger
 [![Version](https://img.shields.io/cocoapods/v/SuperLogger.svg?style=flat)](http://cocoapods.org/pods/SuperID)
 [![License](https://img.shields.io/cocoapods/l/SuperLogger.svg?style=flat)](http://cocoapods.org/pods/SuperID)
 [![Platform](https://img.shields.io/cocoapods/p/SuperLogger.svg?style=flat)](http://cocoapods.org/pods/SuperID)
+[![Build Status](https://travis-ci.org/yourtion/SuperLogger.svg?branch=master)](https://travis-ci.org/yourtion/SuperLogger)
 
 Save NSLog() to file and send email to developer
 
