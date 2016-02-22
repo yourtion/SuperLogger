@@ -26,12 +26,6 @@ const NSString *kLogFileFormat = @"yyyy-MM-dd_HH:mm:ss";
     [super tearDown];
 }
 
-- (void)testGetDateTimeFromStringWithFormat {
-    NSString *string1 = @"2015-01-12_12:16:11";
-    NSDate *date1 = [SuperLoggerFunctions getDateTimeFromString:string1 withFormat:[kLogFileFormat copy]];
-    XCTAssertEqual(date1.timeIntervalSince1970, 1421036171);
-}
-
 - (void)testGetDateTimeStringWithFormat {
     NSString *res = [SuperLoggerFunctions getDateTimeStringWithFormat:[kLogFileFormat copy]];
     XCTAssertNotNil(res);

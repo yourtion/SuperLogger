@@ -15,6 +15,7 @@ const NSString *kTestInfo = @"Hello";
 const NSString *kCrashLogFileName = @"CrashLog.log";
 
 @interface SuperLoggerTests : XCTestCase
+@property (nonatomic, strong) NSString *logDirectory;
 @end
 
 @implementation SuperLoggerTests
@@ -22,6 +23,22 @@ const NSString *kCrashLogFileName = @"CrashLog.log";
 - (void)setUp {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *logDirectory = [paths[0] stringByAppendingPathComponent:@"log"];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if (![SuperLoggerFunctions isFileExistAtPath:logDirectory]) {
+        [fileManager createDirectoryAtPath:logDirectory withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+    NSArray *files = [SuperLoggerFunctions getFilenamelistOfType:@"log" fromDirPath:logDirectory];
+    for (NSString *file in files) {
+        NSString *logFilePath = [logDirectory stringByAppendingPathComponent:file];
+        [fileManager removeItemAtPath:logFilePath error:NULL];
+    }
+    self.logDirectory =logDirectory;
+    NSString *dateStr = [SuperLoggerFunctions getDateTimeStringWithFormat:@"yyyy-MM-dd_HH:mm:ss"];
+    NSString *logFilename = [NSString stringWithFormat:@"%@.log",dateStr];
+    NSString *logFilePath = [self.logDirectory stringByAppendingPathComponent:logFilename];
+    [kTestInfo writeToFile:logFilePath atomically:YES encoding:NSUTF8StringEncoding error:nil];
 }
 
 - (void)tearDown {
@@ -36,26 +53,8 @@ const NSString *kCrashLogFileName = @"CrashLog.log";
 }
 
 - (void)testGetLogList {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *logDirectory = [paths[0] stringByAppendingPathComponent:@"log"];
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    if (![SuperLoggerFunctions isFileExistAtPath:logDirectory]) {
-        [fileManager createDirectoryAtPath:logDirectory withIntermediateDirectories:YES attributes:nil error:nil];
-    }
-    NSArray *files = [SuperLoggerFunctions getFilenamelistOfType:@"log" fromDirPath:logDirectory];
-    for (NSString *file in files) {
-        NSString *logFilePath = [logDirectory stringByAppendingPathComponent:file];
-        [fileManager removeItemAtPath:logFilePath error:NULL];
-    }
-    
     SuperLogger *logger = [SuperLogger sharedInstance];
     NSArray *res1 = [logger getLogList];
-    XCTAssertEqual(res1.count, 0);
-    NSString *dateStr = [SuperLoggerFunctions getDateTimeStringWithFormat:@"yyyy-MM-dd_HH:mm:ss"];
-    NSString *logFilename = [NSString stringWithFormat:@"%@.log",dateStr];
-    NSString *logFilePath = [logDirectory stringByAppendingPathComponent:logFilename];
-    [kTestInfo writeToFile:logFilePath atomically:YES encoding:NSUTF8StringEncoding error:nil];
-    res1 = [logger getLogList];
     XCTAssertEqual(res1.count, 1);
 }
 
