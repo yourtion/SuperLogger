@@ -18,6 +18,7 @@
 		CB0005681C76D29700FC3E1A /* SuperLoggerFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = CB00055F1C76D29700FC3E1A /* SuperLoggerFunctions.m */; };
 		CB0005691C76D29700FC3E1A /* SuperLoggerPreviewView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB0005601C76D29700FC3E1A /* SuperLoggerPreviewView.h */; };
 		CB00056A1C76D29700FC3E1A /* SuperLoggerPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0005611C76D29700FC3E1A /* SuperLoggerPreviewView.m */; };
+		CB00056C1C76E51F00FC3E1A /* SuperLoggerFunctionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CB00056B1C76E51F00FC3E1A /* SuperLoggerFunctionsTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		CB00055F1C76D29700FC3E1A /* SuperLoggerFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperLoggerFunctions.m; sourceTree = "<group>"; };
 		CB0005601C76D29700FC3E1A /* SuperLoggerPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperLoggerPreviewView.h; sourceTree = "<group>"; };
 		CB0005611C76D29700FC3E1A /* SuperLoggerPreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperLoggerPreviewView.m; sourceTree = "<group>"; };
+		CB00056B1C76E51F00FC3E1A /* SuperLoggerFunctionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperLoggerFunctionsTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				CB00054D1C76D26000FC3E1A /* SuperLoggerTests.m */,
+				CB00056B1C76E51F00FC3E1A /* SuperLoggerFunctionsTest.m */,
 				CB00054F1C76D26000FC3E1A /* Info.plist */,
 			);
 			path = SuperLoggerTests;
@@ -241,6 +244,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB00054E1C76D26000FC3E1A /* SuperLoggerTests.m in Sources */,
+				CB00056C1C76E51F00FC3E1A /* SuperLoggerFunctionsTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

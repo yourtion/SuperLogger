@@ -7,9 +7,11 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "SuperLoggerFunctions.h"
+
+const NSString *kLogFileFormat = @"yyyy-MM-dd_HH:mm:ss";
 
 @interface SuperLoggerFunctionsTest : XCTestCase
-
 @end
 
 @implementation SuperLoggerFunctionsTest
@@ -24,16 +26,24 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+- (void)testGetDateTimeFromStringWithFormat {
+    NSString *string1 = @"2015-01-12_12:16:11";
+    NSDate *date1 = [SuperLoggerFunctions getDateTimeFromString:string1 withFormat:[kLogFileFormat copy]];
+    XCTAssertEqual(date1.timeIntervalSince1970, 1421036171);
 }
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
+- (void)testGetDateTimeStringWithFormat {
+    NSString *res = [SuperLoggerFunctions getDateTimeStringWithFormat:[kLogFileFormat copy]];
+    XCTAssertNotNil(res);
+    XCTAssertEqual(res.length, kLogFileFormat.length);
+}
+
+- (void)testFileNotExistAtPath {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *logDirectory = [paths[0] stringByAppendingPathComponent:@"log"];
+    NSString *logFilePath = [logDirectory stringByAppendingPathComponent:@"hello"];
+    BOOL exist = [SuperLoggerFunctions isFileExistAtPath:logFilePath];
+    XCTAssertEqual(exist, NO);
 }
 
 @end

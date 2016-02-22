@@ -53,6 +53,7 @@
     
     NSString* newStr = [[NSString alloc] initWithData:self.logData encoding:NSUTF8StringEncoding];
     UITextView *textView = [[UITextView alloc]initWithFrame:CGRectMake(0, 44+28, self.view.frame.size.width, self.view.frame.size.height -44)];
+    textView.tag = 999;
     textView.editable = NO;
     textView.text = newStr;
     [self.view addSubview:textView];
