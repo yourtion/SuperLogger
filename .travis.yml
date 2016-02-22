@@ -1,0 +1,2 @@
+language: objective-c
+script: xctool -project SuperLogger.xcodeproj -scheme SuperLogger -sdk iphonesimulator test
