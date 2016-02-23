@@ -1,5 +1,6 @@
 SuperLogger
 ===========
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Version](https://img.shields.io/cocoapods/v/SuperLogger.svg?style=flat)](http://cocoapods.org/pods/SuperLogger)
 [![License](https://img.shields.io/cocoapods/l/SuperLogger.svg?style=flat)](http://cocoapods.org/pods/SuperLogger)
 [![Platform](https://img.shields.io/cocoapods/p/SuperLogger.svg?style=flat)](http://cocoapods.org/pods/SuperLogger)
