@@ -25,6 +25,14 @@
     NSString *crash;
 }
 
+- (instancetype)init
+{
+    @throw [NSException exceptionWithName:@"Do not init SuperLogger"
+                                   reason:@"You should use [SuperLogger sharedInstance]"
+                                 userInfo:nil];
+    return nil;
+}
+
 /**
  *  SuperLogger sharedInstance
  */
@@ -33,7 +41,7 @@
     static SuperLogger*_sharedInstance = nil;
     static dispatch_once_t oncePredicate;
     dispatch_once(&oncePredicate, ^{
-        _sharedInstance = [[SuperLogger alloc] init];
+        _sharedInstance = [[SuperLogger alloc] initPrivate];
         _sharedInstance.enableStar =YES; //Default: Allow Star
         _sharedInstance.enableDelete =YES;
         _sharedInstance.enableMail=YES;
@@ -43,9 +51,9 @@
 }
 
 /**
- *  SuperLogger init (set logDirectory)
+ *  SuperLogger initPrivate (set logDirectory)
  */
-- (instancetype)init
+- (instancetype)initPrivate
 {
     self = [super init];
     if (self) {
