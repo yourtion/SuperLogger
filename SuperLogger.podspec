@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "SuperLogger"
-  s.version      = "0.8.0"
+  s.version      = "0.9.0"
   s.summary      = "Save NSLog() to file and send email to developer."
 
   s.description  = <<-DESC
