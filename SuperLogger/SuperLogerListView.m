@@ -105,8 +105,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     _tempFilename = _fileList[indexPath.row];
-    [self exportTapped:self];
+    [self exportTapped:cell];
 }
 
 /**
@@ -116,17 +117,20 @@
  */
 - (void)exportTapped:(id)sender
 {
-    
-    //Oggerschummer 20150205
-    //Replace original UIActionSheet implementation mwith modern implementation using UIAlertController
-    //Thus delegate method below has been commented
+    UITableViewCell *cell = (UITableViewCell *) sender;
     
     @try {
         NSBundle* myBundle;
         NSString *path = [[NSBundle mainBundle] pathForResource:@"SuperLogger" ofType:@"bundle"];
         myBundle = [NSBundle bundleWithPath:path];
         
-        UIAlertController * alertController = [[UIAlertController alloc] init];
+        UIAlertController * alertController = [UIAlertController alertControllerWithTitle:cell.textLabel.text message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+        UIPopoverPresentationController *popover = alertController.popoverPresentationController;
+        if (popover) {
+            alertController = [UIAlertController alertControllerWithTitle:cell.textLabel.text message:nil preferredStyle:UIAlertControllerStyleAlert];
+            popover.sourceView = self.view;
+            popover.sourceRect = CGRectMake((CGRectGetWidth(popover.sourceView.bounds)-2)*0.5f, (CGRectGetHeight(popover.sourceView.bounds)-2)*0.5f, 2, 2);// Show in center.
+        }
         
         if ([SuperLogger sharedInstance].enableStar){
             [alertController addAction:[self getAlertActionEnableStar]];
@@ -148,9 +152,9 @@
         UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:SLLocalizedString( @"SL_Cancel", @"Cancel") style:UIAlertActionStyleDefault handler:Nil];
         [alertController addAction:cancelAction];
         
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            [self presentViewController:alertController animated:YES completion:Nil];
-        }];
+        dispatch_async(dispatch_get_main_queue(), ^(void){
+            [self presentViewController:alertController animated:YES completion:nil];
+        });
         
     }
     @catch (NSException * e)
