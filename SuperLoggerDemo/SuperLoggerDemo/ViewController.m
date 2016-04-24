@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "SuperLogger.h"
+#import <SuperLogger/SuperLogger.h>
 
 @interface ViewController ()
 

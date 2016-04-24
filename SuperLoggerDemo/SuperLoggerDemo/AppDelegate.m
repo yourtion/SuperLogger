@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "SuperLogger.h"
+#import <SuperLogger/SuperLogger.h>
 
 @interface AppDelegate ()
 

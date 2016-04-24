@@ -7,22 +7,63 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CB4D6AC21A830B5D00BA483C /* SuperLogger.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CB4D6AC11A830B5D00BA483C /* SuperLogger.bundle */; };
-		CB68D88A1A81F2C0006A3A32 /* SuperLoggerPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB68D8891A81F2C0006A3A32 /* SuperLoggerPreviewView.m */; };
+		CBA0A2101CCC96B40023A218 /* SuperLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBA0A20A1CCC966E0023A218 /* SuperLogger.framework */; };
+		CBA0A2111CCC96B40023A218 /* SuperLogger.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CBA0A20A1CCC966E0023A218 /* SuperLogger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CBF026081A49AB8100F28BC0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF026071A49AB8100F28BC0 /* main.m */; };
 		CBF0260B1A49AB8100F28BC0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF0260A1A49AB8100F28BC0 /* AppDelegate.m */; };
 		CBF0260E1A49AB8100F28BC0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF0260D1A49AB8100F28BC0 /* ViewController.m */; };
 		CBF026111A49AB8100F28BC0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBF0260F1A49AB8100F28BC0 /* Main.storyboard */; };
 		CBF026131A49AB8100F28BC0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBF026121A49AB8100F28BC0 /* Images.xcassets */; };
 		CBF026161A49AB8100F28BC0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBF026141A49AB8100F28BC0 /* LaunchScreen.xib */; };
-		CBF026321A49ABC000F28BC0 /* SuperLogerListView.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF0262D1A49ABC000F28BC0 /* SuperLogerListView.m */; };
-		CBF026331A49ABC000F28BC0 /* SuperLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF0262F1A49ABC000F28BC0 /* SuperLogger.m */; };
-		CBF026341A49ABC000F28BC0 /* SuperLoggerFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF026311A49ABC000F28BC0 /* SuperLoggerFunctions.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		CBA0A2091CCC966E0023A218 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA0A2041CCC966E0023A218 /* SuperLogger.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CB00053E1C76D26000FC3E1A;
+			remoteInfo = SuperLogger;
+		};
+		CBA0A20B1CCC966E0023A218 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA0A2041CCC966E0023A218 /* SuperLogger.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CB0005481C76D26000FC3E1A;
+			remoteInfo = SuperLoggerTests;
+		};
+		CBA0A20D1CCC967E0023A218 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA0A2041CCC966E0023A218 /* SuperLogger.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = CB00053D1C76D26000FC3E1A;
+			remoteInfo = SuperLogger;
+		};
+		CBA0A2121CCC96B40023A218 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA0A2041CCC966E0023A218 /* SuperLogger.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = CB00053D1C76D26000FC3E1A;
+			remoteInfo = SuperLogger;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CBA0A2141CCC96B40023A218 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				CBA0A2111CCC96B40023A218 /* SuperLogger.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		CB4D6AC11A830B5D00BA483C /* SuperLogger.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SuperLogger.bundle; path = Resources/SuperLogger.bundle; sourceTree = "<group>"; };
-		CB68D8891A81F2C0006A3A32 /* SuperLoggerPreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperLoggerPreviewView.m; sourceTree = "<group>"; };
+		CBA0A2041CCC966E0023A218 /* SuperLogger.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SuperLogger.xcodeproj; path = ../SuperLogger.xcodeproj; sourceTree = "<group>"; };
 		CBF026021A49AB8100F28BC0 /* SuperLoggerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperLoggerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBF026061A49AB8100F28BC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBF026071A49AB8100F28BC0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -34,13 +75,6 @@
 		CBF026121A49AB8100F28BC0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CBF026151A49AB8100F28BC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		CBF026201A49AB8100F28BC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CBF0262C1A49ABC000F28BC0 /* SuperLogerListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperLogerListView.h; sourceTree = "<group>"; };
-		CBF0262D1A49ABC000F28BC0 /* SuperLogerListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperLogerListView.m; sourceTree = "<group>"; };
-		CBF0262E1A49ABC000F28BC0 /* SuperLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperLogger.h; sourceTree = "<group>"; };
-		CBF0262F1A49ABC000F28BC0 /* SuperLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperLogger.m; sourceTree = "<group>"; };
-		CBF026301A49ABC000F28BC0 /* SuperLoggerFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperLoggerFunctions.h; sourceTree = "<group>"; };
-		CBF026311A49ABC000F28BC0 /* SuperLoggerFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperLoggerFunctions.m; sourceTree = "<group>"; };
-		CBF026351A4A5F7700F28BC0 /* SuperLoggerPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperLoggerPreviewView.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,16 +82,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBA0A2101CCC96B40023A218 /* SuperLogger.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CBA0A2051CCC966E0023A218 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CBA0A20A1CCC966E0023A218 /* SuperLogger.framework */,
+				CBA0A20C1CCC966E0023A218 /* SuperLoggerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		CBF025F91A49AB8100F28BC0 = {
 			isa = PBXGroup;
 			children = (
-				CBF0262B1A49ABC000F28BC0 /* SuperLogger */,
+				CBA0A2041CCC966E0023A218 /* SuperLogger.xcodeproj */,
 				CBF026041A49AB8100F28BC0 /* SuperLoggerDemo */,
 				CBF0261E1A49AB8100F28BC0 /* SuperLoggerDemoTests */,
 				CBF026031A49AB8100F28BC0 /* Products */,
@@ -112,23 +156,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		CBF0262B1A49ABC000F28BC0 /* SuperLogger */ = {
-			isa = PBXGroup;
-			children = (
-				CB4D6AC11A830B5D00BA483C /* SuperLogger.bundle */,
-				CBF0262C1A49ABC000F28BC0 /* SuperLogerListView.h */,
-				CBF0262D1A49ABC000F28BC0 /* SuperLogerListView.m */,
-				CBF026351A4A5F7700F28BC0 /* SuperLoggerPreviewView.h */,
-				CB68D8891A81F2C0006A3A32 /* SuperLoggerPreviewView.m */,
-				CBF0262E1A49ABC000F28BC0 /* SuperLogger.h */,
-				CBF0262F1A49ABC000F28BC0 /* SuperLogger.m */,
-				CBF026301A49ABC000F28BC0 /* SuperLoggerFunctions.h */,
-				CBF026311A49ABC000F28BC0 /* SuperLoggerFunctions.m */,
-			);
-			name = SuperLogger;
-			path = ../../SuperLogger/SuperLogger;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -139,10 +166,13 @@
 				CBF025FE1A49AB8100F28BC0 /* Sources */,
 				CBF025FF1A49AB8100F28BC0 /* Frameworks */,
 				CBF026001A49AB8100F28BC0 /* Resources */,
+				CBA0A2141CCC96B40023A218 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				CBA0A20E1CCC967E0023A218 /* PBXTargetDependency */,
+				CBA0A2131CCC96B40023A218 /* PBXTargetDependency */,
 			);
 			name = SuperLoggerDemo;
 			productName = SuperLoggerDemo;
@@ -177,6 +207,12 @@
 			mainGroup = CBF025F91A49AB8100F28BC0;
 			productRefGroup = CBF026031A49AB8100F28BC0 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = CBA0A2051CCC966E0023A218 /* Products */;
+					ProjectRef = CBA0A2041CCC966E0023A218 /* SuperLogger.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				CBF026011A49AB8100F28BC0 /* SuperLoggerDemo */,
@@ -184,13 +220,29 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		CBA0A20A1CCC966E0023A218 /* SuperLogger.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SuperLogger.framework;
+			remoteRef = CBA0A2091CCC966E0023A218 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CBA0A20C1CCC966E0023A218 /* SuperLoggerTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SuperLoggerTests.xctest;
+			remoteRef = CBA0A20B1CCC966E0023A218 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		CBF026001A49AB8100F28BC0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				CBF026111A49AB8100F28BC0 /* Main.storyboard in Resources */,
-				CB4D6AC21A830B5D00BA483C /* SuperLogger.bundle in Resources */,
 				CBF026161A49AB8100F28BC0 /* LaunchScreen.xib in Resources */,
 				CBF026131A49AB8100F28BC0 /* Images.xcassets in Resources */,
 			);
@@ -204,16 +256,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBF0260E1A49AB8100F28BC0 /* ViewController.m in Sources */,
-				CBF026341A49ABC000F28BC0 /* SuperLoggerFunctions.m in Sources */,
-				CB68D88A1A81F2C0006A3A32 /* SuperLoggerPreviewView.m in Sources */,
 				CBF0260B1A49AB8100F28BC0 /* AppDelegate.m in Sources */,
-				CBF026321A49ABC000F28BC0 /* SuperLogerListView.m in Sources */,
-				CBF026331A49ABC000F28BC0 /* SuperLogger.m in Sources */,
 				CBF026081A49AB8100F28BC0 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CBA0A20E1CCC967E0023A218 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SuperLogger;
+			targetProxy = CBA0A20D1CCC967E0023A218 /* PBXContainerItemProxy */;
+		};
+		CBA0A2131CCC96B40023A218 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SuperLogger;
+			targetProxy = CBA0A2121CCC96B40023A218 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		CBF0260F1A49AB8100F28BC0 /* Main.storyboard */ = {
