@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CBA0A2101CCC96B40023A218 /* SuperLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBA0A20A1CCC966E0023A218 /* SuperLogger.framework */; };
-		CBA0A2111CCC96B40023A218 /* SuperLogger.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CBA0A20A1CCC966E0023A218 /* SuperLogger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CBEEB2671D3F70AE00E3D8DC /* SuperLogger.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CBEEB2641D3F70A000E3D8DC /* SuperLogger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CBF026081A49AB8100F28BC0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF026071A49AB8100F28BC0 /* main.m */; };
 		CBF0260B1A49AB8100F28BC0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF0260A1A49AB8100F28BC0 /* AppDelegate.m */; };
 		CBF0260E1A49AB8100F28BC0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF0260D1A49AB8100F28BC0 /* ViewController.m */; };
@@ -17,45 +16,14 @@
 		CBF026161A49AB8100F28BC0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBF026141A49AB8100F28BC0 /* LaunchScreen.xib */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		CBA0A2091CCC966E0023A218 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CBA0A2041CCC966E0023A218 /* SuperLogger.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CB00053E1C76D26000FC3E1A;
-			remoteInfo = SuperLogger;
-		};
-		CBA0A20B1CCC966E0023A218 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CBA0A2041CCC966E0023A218 /* SuperLogger.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CB0005481C76D26000FC3E1A;
-			remoteInfo = SuperLoggerTests;
-		};
-		CBA0A20D1CCC967E0023A218 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CBA0A2041CCC966E0023A218 /* SuperLogger.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = CB00053D1C76D26000FC3E1A;
-			remoteInfo = SuperLogger;
-		};
-		CBA0A2121CCC96B40023A218 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CBA0A2041CCC966E0023A218 /* SuperLogger.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = CB00053D1C76D26000FC3E1A;
-			remoteInfo = SuperLogger;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
-		CBA0A2141CCC96B40023A218 /* Embed Frameworks */ = {
+		CBEEB2681D3F70AE00E3D8DC /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				CBA0A2111CCC96B40023A218 /* SuperLogger.framework in Embed Frameworks */,
+				CBEEB2671D3F70AE00E3D8DC /* SuperLogger.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -63,7 +31,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		CBA0A2041CCC966E0023A218 /* SuperLogger.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SuperLogger.xcodeproj; path = ../SuperLogger.xcodeproj; sourceTree = "<group>"; };
+		CBEEB2641D3F70A000E3D8DC /* SuperLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SuperLogger.framework; path = "../../../../Library/Developer/Xcode/DerivedData/SuperLogger-eggsbqvxpkigpmdnsnkrutgjdszh/Build/Products/Debug-iphoneos/SuperLogger.framework"; sourceTree = "<group>"; };
 		CBF026021A49AB8100F28BC0 /* SuperLoggerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperLoggerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBF026061A49AB8100F28BC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBF026071A49AB8100F28BC0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -74,7 +42,6 @@
 		CBF026101A49AB8100F28BC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CBF026121A49AB8100F28BC0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CBF026151A49AB8100F28BC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		CBF026201A49AB8100F28BC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,28 +49,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CBA0A2101CCC96B40023A218 /* SuperLogger.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CBA0A2051CCC966E0023A218 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				CBA0A20A1CCC966E0023A218 /* SuperLogger.framework */,
-				CBA0A20C1CCC966E0023A218 /* SuperLoggerTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		CBF025F91A49AB8100F28BC0 = {
 			isa = PBXGroup;
 			children = (
-				CBA0A2041CCC966E0023A218 /* SuperLogger.xcodeproj */,
+				CBEEB2641D3F70A000E3D8DC /* SuperLogger.framework */,
 				CBF026041A49AB8100F28BC0 /* SuperLoggerDemo */,
-				CBF0261E1A49AB8100F28BC0 /* SuperLoggerDemoTests */,
 				CBF026031A49AB8100F28BC0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -140,22 +96,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		CBF0261E1A49AB8100F28BC0 /* SuperLoggerDemoTests */ = {
-			isa = PBXGroup;
-			children = (
-				CBF0261F1A49AB8100F28BC0 /* Supporting Files */,
-			);
-			path = SuperLoggerDemoTests;
-			sourceTree = "<group>";
-		};
-		CBF0261F1A49AB8100F28BC0 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				CBF026201A49AB8100F28BC0 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -166,13 +106,11 @@
 				CBF025FE1A49AB8100F28BC0 /* Sources */,
 				CBF025FF1A49AB8100F28BC0 /* Frameworks */,
 				CBF026001A49AB8100F28BC0 /* Resources */,
-				CBA0A2141CCC96B40023A218 /* Embed Frameworks */,
+				CBEEB2681D3F70AE00E3D8DC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				CBA0A20E1CCC967E0023A218 /* PBXTargetDependency */,
-				CBA0A2131CCC96B40023A218 /* PBXTargetDependency */,
 			);
 			name = SuperLoggerDemo;
 			productName = SuperLoggerDemo;
@@ -207,35 +145,12 @@
 			mainGroup = CBF025F91A49AB8100F28BC0;
 			productRefGroup = CBF026031A49AB8100F28BC0 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = CBA0A2051CCC966E0023A218 /* Products */;
-					ProjectRef = CBA0A2041CCC966E0023A218 /* SuperLogger.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				CBF026011A49AB8100F28BC0 /* SuperLoggerDemo */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		CBA0A20A1CCC966E0023A218 /* SuperLogger.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SuperLogger.framework;
-			remoteRef = CBA0A2091CCC966E0023A218 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		CBA0A20C1CCC966E0023A218 /* SuperLoggerTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = SuperLoggerTests.xctest;
-			remoteRef = CBA0A20B1CCC966E0023A218 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		CBF026001A49AB8100F28BC0 /* Resources */ = {
@@ -262,19 +177,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		CBA0A20E1CCC967E0023A218 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SuperLogger;
-			targetProxy = CBA0A20D1CCC967E0023A218 /* PBXContainerItemProxy */;
-		};
-		CBA0A2131CCC96B40023A218 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SuperLogger;
-			targetProxy = CBA0A2121CCC96B40023A218 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		CBF0260F1A49AB8100F28BC0 /* Main.storyboard */ = {
