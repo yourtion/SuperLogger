@@ -1,21 +1,6 @@
 language: objective-c
-osx_image: xcode7.3
 
-env:
-  global:
-    - WORKSPACE=SuperLogger.xcworkspace
-    - IOS_SCHEME=SuperLogger
-    - SDK=iphonesimulator
-    - CONFIG="ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES"
-  matrix:
-    - SCHEME="$IOS_SCHEME"  SDK="$IOS_SDK" DESTINATION="OS=8.1,name=iPhone 4S"
-    - SCHEME="$IOS_SCHEME"  SDK="$IOS_SDK" DESTINATION="OS=8.2,name=iPhone 5"
-    - SCHEME="$IOS_SCHEME"  SDK="$IOS_SDK" DESTINATION="OS=8.3,name=iPhone 5S"
-    - SCHEME="$IOS_SCHEME"  SDK="$IOS_SDK" DESTINATION="OS=8.4,name=iPhone 6"
-    - SCHEME="$IOS_SCHEME"  SDK="$IOS_SDK" DESTINATION="OS=9.0,name=iPhone 6"
-    - SCHEME="$IOS_SCHEME"  SDK="$IOS_SDK" DESTINATION="OS=9.1,name=iPhone 6 Plus"
-    - SCHEME="$IOS_SCHEME"  SDK="$IOS_SDK" DESTINATION="OS=9.2,name=iPhone 6S"
-    - SCHEME="$IOS_SCHEME"  SDK="$IOS_SDK" DESTINATION="OS=9.3,name=iPhone 6S Plus"
-
-script:
-  - xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" -configuration $CONFIG test | xcpretty -c;
+before_install:
+  - brew update
+  - brew outdated xctool || brew upgrade xctool
+script: xctool -project SuperLogger.xcodeproj -scheme SuperLogger -sdk iphonesimulator test
