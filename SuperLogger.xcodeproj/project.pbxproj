@@ -19,6 +19,8 @@
 		CB0005691C76D29700FC3E1A /* SuperLoggerPreviewView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB0005601C76D29700FC3E1A /* SuperLoggerPreviewView.h */; };
 		CB00056A1C76D29700FC3E1A /* SuperLoggerPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0005611C76D29700FC3E1A /* SuperLoggerPreviewView.m */; };
 		CB00056C1C76E51F00FC3E1A /* SuperLoggerFunctionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CB00056B1C76E51F00FC3E1A /* SuperLoggerFunctionsTest.m */; };
+		CBACBE8B1D44B0640096C5F8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBACBE8A1D44B0640096C5F8 /* UIKit.framework */; };
+		CBACBE8D1D44B0BD0096C5F8 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBACBE8C1D44B0BD0096C5F8 /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		CB0005601C76D29700FC3E1A /* SuperLoggerPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperLoggerPreviewView.h; sourceTree = "<group>"; };
 		CB0005611C76D29700FC3E1A /* SuperLoggerPreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperLoggerPreviewView.m; sourceTree = "<group>"; };
 		CB00056B1C76E51F00FC3E1A /* SuperLoggerFunctionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperLoggerFunctionsTest.m; sourceTree = "<group>"; };
+		CBACBE8A1D44B0640096C5F8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CBACBE8C1D44B0BD0096C5F8 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBACBE8D1D44B0BD0096C5F8 /* MessageUI.framework in Frameworks */,
+				CBACBE8B1D44B0640096C5F8 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +77,8 @@
 		CB0005341C76D26000FC3E1A = {
 			isa = PBXGroup;
 			children = (
+				CBACBE8C1D44B0BD0096C5F8 /* MessageUI.framework */,
+				CBACBE8A1D44B0640096C5F8 /* UIKit.framework */,
 				CB0005401C76D26000FC3E1A /* SuperLogger */,
 				CB00054C1C76D26000FC3E1A /* SuperLoggerTests */,
 				CB00053F1C76D26000FC3E1A /* Products */,
