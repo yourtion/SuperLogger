@@ -33,6 +33,16 @@
     return nil;
 }
 
++ (NSBundle *)getBundle
+{
+    NSBundle *bundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"SuperLogger" ofType:@"bundle"]];
+    if (!bundle) {
+        bundle = [NSBundle bundleWithPath:[[NSBundle bundleForClass:[SuperLogger self]] pathForResource:@"SuperLogger" ofType:@"bundle"]];
+    }
+    return bundle;
+}
+
+
 /**
  *  SuperLogger sharedInstance
  */
@@ -46,6 +56,7 @@
         _sharedInstance.enableDelete =YES;
         _sharedInstance.enableMail=YES;
         _sharedInstance.enablePreview=YES;
+        _sharedInstance.bundle = [SuperLogger getBundle];
     });
     return _sharedInstance;
 }

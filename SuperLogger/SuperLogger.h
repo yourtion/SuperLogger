@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-#define SLLocalizedString(key, comment) [[NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"SuperLogger" ofType:@"bundle"]] localizedStringForKey:(key) value:@"" table:@"SLLocalizable"]
+#define SLLocalizedString(key, comment) [[SuperLogger sharedInstance].bundle localizedStringForKey:(key) value:comment table:@"SLLocalizable"]
 
 
 @interface SuperLogger : NSObject
@@ -20,6 +20,7 @@
 @property(assign,nonatomic) BOOL enablePreview;
 @property(assign,nonatomic) BOOL enableMail;
 @property(assign,nonatomic) BOOL enableDelete;
+@property(strong, nonatomic) NSBundle *bundle;
 
 /**
  *  SuperLogger sharedInstance
